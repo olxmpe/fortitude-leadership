@@ -15,7 +15,6 @@ export const components = defineSliceZoneComponents({
   mission_values: defineAsyncComponent(
     () => import("./MissionsAndCta/index.vue"),
   ),
-  rich_text: defineAsyncComponent(() => import("./RichText/index.vue")),
   section_header: defineAsyncComponent(() => import("./Header/index.vue")),
   talent_development: defineAsyncComponent(
     () => import("./ArticleBlock/index.vue"),

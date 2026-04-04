@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
+import { asText } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/vue";
 
 defineProps<{
@@ -12,7 +13,7 @@ defineProps<{
     :data-slice-type="slice.slice_type"
     :data-slice-variation="slice.variation"
   >
-    <PrismicRichText :field="slice.primary.title" />
+    <h2>{{ asText(slice.primary.title) }}</h2>
     <PrismicRichText :field="slice.primary.subtitle" />
     <PrismicRichText :field="slice.primary.body" />
   </section>

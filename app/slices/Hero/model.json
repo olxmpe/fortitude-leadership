@@ -28,6 +28,26 @@
             "placeholder": "Enter hero subtitle"
           }
         },
+        "cta": {
+          "type": "Link",
+          "config": {
+            "label": "CTA",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
+        },
+        "footerText": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Additional text",
+            "placeholder": "Enter footer descriptive text",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
         "backgroundImage": {
           "type": "Image",
           "config": {
@@ -36,15 +56,6 @@
               "width": 1920,
               "height": 1080
             }
-          }
-        },
-        "footerText": {
-          "type": "StructuredText",
-          "config": {
-            "label": "Footer Text",
-            "placeholder": "Enter footer descriptive text",
-            "allowTargetBlank": true,
-            "single": "paragraph"
           }
         }
       },

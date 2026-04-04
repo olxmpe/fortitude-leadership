@@ -53,10 +53,19 @@
 					{
 						"type": "paragraph",
 						"content": {
-							"text": "Tempor ex est sit. Esse irure reprehenderit reprehenderit ea nostrud id."
+							"text": "Ut do Lorem reprehenderit consectetur veniam incididunt sit reprehenderit ex aliquip aliqua quis veniam qui. Ea cillum sunt proident consequat esse do culpa in ea nostrud aute ullamco ut nostrud fugiat. Sint irure aliquip anim."
 						}
 					}
 				]
+			},
+			"cta": {
+				"key": "72131f72-450e-4301-a394-44d7b68783dc",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "necessary"
+				}
 			}
 		},
 		"items": []

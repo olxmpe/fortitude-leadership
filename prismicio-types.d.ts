@@ -670,6 +670,26 @@ export interface HeroSliceDefaultPrimary {
   subtitle: prismic.RichTextField;
 
   /**
+   * CTA field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.default.primary.cta
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Additional text field in *Hero → Default → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Enter footer descriptive text
+   * - **API ID Path**: hero.default.primary.footerText
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  footerText: prismic.RichTextField;
+
+  /**
    * Background Image field in *Hero → Default → Primary*
    *
    * - **Field Type**: Image
@@ -678,16 +698,6 @@ export interface HeroSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
   backgroundImage: prismic.ImageField<never>;
-
-  /**
-   * Footer Text field in *Hero → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Enter footer descriptive text
-   * - **API ID Path**: hero.default.primary.footerText
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  footerText: prismic.RichTextField;
 }
 
 /**
@@ -1026,51 +1036,6 @@ type MissionValuesSliceVariation = MissionValuesSliceDefault;
 export type MissionValuesSlice = prismic.SharedSlice<
   "mission_values",
   MissionValuesSliceVariation
->;
-
-/**
- * Primary content in *RichText → Default → Primary*
- */
-export interface RichTextSliceDefaultPrimary {
-  /**
-   * Content field in *RichText → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: Lorem ipsum...
-   * - **API ID Path**: rich_text.default.primary.content
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  content: prismic.RichTextField;
-}
-
-/**
- * Default variation for RichText Slice
- *
- * - **API ID**: `default`
- * - **Description**: RichText
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type RichTextSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<RichTextSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *RichText*
- */
-type RichTextSliceVariation = RichTextSliceDefault;
-
-/**
- * RichText Shared Slice
- *
- * - **API ID**: `rich_text`
- * - **Description**: RichText
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type RichTextSlice = prismic.SharedSlice<
-  "rich_text",
-  RichTextSliceVariation
 >;
 
 /**
@@ -1550,10 +1515,6 @@ declare module "@prismicio/client" {
       MissionValuesSliceDefaultPrimary,
       MissionValuesSliceVariation,
       MissionValuesSliceDefault,
-      RichTextSlice,
-      RichTextSliceDefaultPrimary,
-      RichTextSliceVariation,
-      RichTextSliceDefault,
       SectionHeaderSlice,
       SectionHeaderSliceDefaultPrimary,
       SectionHeaderSliceVariation,

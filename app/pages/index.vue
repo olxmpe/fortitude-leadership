@@ -1,20 +1,20 @@
 <script setup lang="ts">
-import { asText } from '@prismicio/client'
-import { components } from '~/slices'
+import { components } from "~/slices";
 
-const { client } = usePrismic()
-const { data: page } = await useAsyncData('index', () =>
-  client.getByUID('page', 'home')
-)
+const { client } = usePrismic();
+const { data: page, error } = await useAsyncData("index", () =>
+  client.getSingle("home"),
+);
 
 useHead({
-  title: asText(page.value?.data.title)
-})
+  title: page.value?.data.meta_title ?? "Fortitude Leadership",
+});
 </script>
-
 
 <template>
   <main>
-    <SliceZone :slices="page?.data.slices ?? []" :components="components" />
+    <pre v-if="error" style="color:red;padding:2rem">ERREUR: {{ error }}</pre>
+    <pre v-else-if="!page" style="padding:2rem">page est null — données non reçues</pre>
+    <SliceZone v-else :slices="page.data.slices ?? []" :components="components" />
   </main>
 </template>

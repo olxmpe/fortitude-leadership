@@ -1,0 +1,59 @@
+@use "variables" as *;
+
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Italiana&display=swap");
+
+:root {
+  --color-navy: #{$color-navy};
+  --color-navy-light: #{$color-navy-light};
+  --color-navy-lighter: #{$color-navy-lighter};
+  --color-white: #{$color-white};
+  --color-black: #{$color-black};
+  --color-gray: #{$color-gray};
+
+  --font-serif: #{$font-serif};
+  --font-sans: #{$font-sans};
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: $font-sans;
+  font-size: $font-size-sm;
+  font-weight: 300;
+  color: $color-black;
+
+  h1 {
+    font-family: $font-serif;
+    font-size: $font-size-xl;
+    color: $color-white;
+  }
+
+  h2,
+  .quote {
+    font-family: $font-serif;
+    font-size: $font-size-lg;
+    color: $color-navy;
+  }
+
+  h3 {
+    color: $color-navy;
+    font-weight: "bold";
+  }
+
+  p {
+    font-size: $font-size-sm;
+  }
+
+  .text-light {
+    color: $color-gray;
+  }
+}
+
+img {
+  max-width: 100%;
+}
