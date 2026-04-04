@@ -1,0 +1,95 @@
+{
+  "id": "mission_values",
+  "type": "SharedSlice",
+  "name": "MissionsAndCta",
+  "description": "Three-column mission values section with image and CTA",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default variation",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "value_one_heading": {
+          "type": "Text",
+          "config": {
+            "label": "First Value Heading",
+            "placeholder": "e.g., Éclairer"
+          }
+        },
+        "value_one_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "First Value Description",
+            "single": "paragraph"
+          }
+        },
+        "value_two_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Second Value Heading",
+            "placeholder": "e.g., Guider"
+          }
+        },
+        "value_two_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Second Value Description",
+            "single": "paragraph"
+          }
+        },
+        "value_three_heading": {
+          "type": "Text",
+          "config": {
+            "label": "Third Value Heading",
+            "placeholder": "e.g., Accomplir"
+          }
+        },
+        "value_three_description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Third Value Description",
+            "single": "paragraph"
+          }
+        },
+        "feature_image": {
+          "type": "Image",
+          "config": {
+            "label": "Feature Image"
+          }
+        },
+        "tagline_heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Tagline Heading",
+            "single": "paragraph"
+          }
+        },
+        "cta_text": {
+          "type": "Text",
+          "config": {
+            "label": "CTA Button Text",
+            "placeholder": "e.g., Découvrez nos services"
+          }
+        },
+        "cta_link": {
+          "type": "Link",
+          "config": {
+            "label": "CTA Link",
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

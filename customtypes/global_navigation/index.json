@@ -1,0 +1,47 @@
+{
+  "format": "custom",
+  "id": "global_navigation",
+  "label": "Global Navigation",
+  "repeatable": false,
+  "status": true,
+  "json": {
+    "Main": {
+      "nav_item": {
+        "type": "Group",
+        "config": {
+          "label": "Nav Item",
+          "repeat": true,
+          "fields": {
+            "display_text": {
+              "type": "Text",
+              "config": {
+                "label": "Display Text",
+                "placeholder": ""
+              }
+            },
+            "url": {
+              "type": "Link",
+              "config": {
+                "label": "url",
+                "placeholder": "",
+                "select": null,
+                "allowTargetBlank": true,
+                "allowText": false,
+                "repeat": false
+              }
+            },
+            "bold": {
+              "type": "Boolean",
+              "config": {
+                "label": "Bold",
+                "placeholder_false": "false",
+                "placeholder_true": "true",
+                "default_value": false
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

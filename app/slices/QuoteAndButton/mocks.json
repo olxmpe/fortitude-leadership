@@ -1,0 +1,34 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"author": {
+				"__TYPE__": "FieldContent",
+				"value": "ask",
+				"type": "Text"
+			},
+			"quote": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Culpa ad pariatur excepteur aliquip nostrud non pariatur."
+						}
+					}
+				]
+			},
+			"button": {
+				"__TYPE__": "LinkContent",
+				"key": "75368dec-3106-4017-9394-baf55d707fb4",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "http://twitter.com",
+					"text": "composed"
+				}
+			}
+		},
+		"items": []
+	}
+]

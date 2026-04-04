@@ -1,0 +1,39 @@
+{
+  "id": "vision_statement",
+  "type": "SharedSlice",
+  "name": "TextAndImage",
+  "description": "Vision statement section with title, description text, and background image",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default variation",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "single": "heading1"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "backgroundImage": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

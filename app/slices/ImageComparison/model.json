@@ -1,0 +1,54 @@
+{
+  "id": "image_comparison",
+  "type": "SharedSlice",
+  "name": "ImageComparison",
+  "description": "Two-column image comparison layout for visual side-by-side comparison",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default image comparison variation",
+      "imageUrl": "",
+      "primary": {
+        "leftImage": {
+          "type": "Image",
+          "config": {
+            "label": "Left Image"
+          }
+        },
+        "rightImage": {
+          "type": "Image",
+          "config": {
+            "label": "Right Image"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "inversed",
+      "name": "Inversed",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default image comparison variation",
+      "imageUrl": "",
+      "primary": {
+        "leftImage": {
+          "type": "Image",
+          "config": {
+            "label": "Left Image"
+          }
+        },
+        "rightImage": {
+          "type": "Image",
+          "config": {
+            "label": "Right Image"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

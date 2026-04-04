@@ -1,0 +1,32 @@
+{
+  "id": "section_header",
+  "type": "SharedSlice",
+  "name": "Header",
+  "description": "A section header with a heading and background image",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default section header variation",
+      "imageUrl": "",
+      "primary": {
+        "heading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Heading",
+            "single": "heading1"
+          }
+        },
+        "backgroundImage": {
+          "type": "Image",
+          "config": {
+            "label": "Background Image"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

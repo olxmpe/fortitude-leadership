@@ -1,0 +1,86 @@
+{
+  "id": "case_study",
+  "type": "SharedSlice",
+  "name": "CaseStudy",
+  "description": "Case study section with title, subtitle, body content, and background image",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default case study variation",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "single": "heading2"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtitle",
+            "single": "paragraph"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "constraint": {},
+            "label": "Image"
+          }
+        }
+      },
+      "items": {}
+    },
+    {
+      "id": "caseStudyImageLeft",
+      "name": "CaseStudyImageLeft",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default case study variation",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "single": "heading2"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtitle",
+            "single": "paragraph"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        },
+        "image": {
+          "type": "Image",
+          "config": {
+            "constraint": {},
+            "label": "Image"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

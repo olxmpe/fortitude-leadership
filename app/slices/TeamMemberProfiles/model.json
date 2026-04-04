@@ -1,0 +1,52 @@
+{
+  "id": "team_member_profiles",
+  "type": "SharedSlice",
+  "name": "TeamMemberProfiles",
+  "description": "Displays team member profiles with images, bios, and experience details",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default team member profiles variation",
+      "imageUrl": "",
+      "primary": {
+        "members": {
+          "type": "Group",
+          "config": {
+            "label": "Team Members",
+            "fields": {
+              "image": {
+                "type": "Image",
+                "config": {
+                  "label": "Profile Image",
+                  "constraint": {
+                    "width": 200,
+                    "height": 200
+                  }
+                }
+              },
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Title",
+                  "placeholder": "John Doe"
+                }
+              },
+              "bio": {
+                "type": "StructuredText",
+                "config": {
+                  "label": "Bio Description",
+                  "multi": "paragraph,strong,em",
+                  "placeholder": "Brief background..."
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

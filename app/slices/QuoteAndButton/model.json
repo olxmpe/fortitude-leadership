@@ -1,0 +1,42 @@
+{
+  "id": "testimonial",
+  "type": "SharedSlice",
+  "name": "QuoteAndButton",
+  "description": "A testimonial slice featuring a quote with author attribution and call-to-action button",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default testimonial variation",
+      "imageUrl": "",
+      "primary": {
+        "author": {
+          "type": "Text",
+          "config": {
+            "label": "Author",
+            "placeholder": "Author name"
+          }
+        },
+        "quote": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Quote",
+            "single": "paragraph",
+            "placeholder": "Enter the testimonial quote"
+          }
+        },
+        "button": {
+          "type": "Link",
+          "config": {
+            "label": "Call to Action",
+            "allowText": true,
+            "select": null
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

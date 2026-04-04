@@ -1,0 +1,36 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"mainHeading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading1",
+						"content": {
+							"text": "Feathers"
+						}
+					}
+				]
+			},
+			"subheading": {
+				"__TYPE__": "FieldContent",
+				"value": "disappear",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Duis Lorem tempor pariatur veniam laboris adipisicing cillum incididunt. Officia incididunt ut est commodo incididunt sint laborum et exercitation sunt."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

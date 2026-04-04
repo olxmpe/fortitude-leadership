@@ -1,0 +1,39 @@
+{
+  "id": "leadership_guidance",
+  "type": "SharedSlice",
+  "name": "Service",
+  "description": "Two-column layout with main heading on the left and descriptive content on the right",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default variation",
+      "imageUrl": "",
+      "primary": {
+        "mainHeading": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Main Heading",
+            "single": "heading1"
+          }
+        },
+        "subheading": {
+          "type": "Text",
+          "config": {
+            "label": "Subheading"
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "multi": "paragraph,strong,em,hyperlink"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

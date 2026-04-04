@@ -1,0 +1,43 @@
+{
+  "id": "talent_development",
+  "type": "SharedSlice",
+  "name": "ArticleBlock",
+  "description": "Section for showcasing talent development and alignment content with title and rich text body",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default variation with title and body content",
+      "imageUrl": "",
+      "primary": {
+        "title": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Title",
+            "single": "heading1",
+            "placeholder": "Section title"
+          }
+        },
+        "subtitle": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Subtitle",
+            "single": "paragraph",
+            "placeholder": "Optional subtitle or tagline"
+          }
+        },
+        "body": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Body",
+            "multi": "paragraph,strong,em,hyperlink",
+            "placeholder": "Enter rich text content"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

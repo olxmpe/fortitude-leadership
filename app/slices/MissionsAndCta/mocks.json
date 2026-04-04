@@ -1,0 +1,108 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"value_one_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "smoke",
+				"type": "Text"
+			},
+			"value_one_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Do incididunt ea nisi id reprehenderit duis exercitation consectetur enim culpa anim consequat elit commodo. Consequat proident cupidatat elit proident."
+						}
+					}
+				]
+			},
+			"value_two_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "believed",
+				"type": "Text"
+			},
+			"value_two_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Id non enim sit adipisicing ullamco magna excepteur est do sit tempor. Est esse ea sint nulla aute voluptate voluptate id."
+						}
+					}
+				]
+			},
+			"value_three_heading": {
+				"__TYPE__": "FieldContent",
+				"value": "law",
+				"type": "Text"
+			},
+			"value_three_description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Reprehenderit aliqua incididunt cupidatat ea."
+						}
+					}
+				]
+			},
+			"feature_image": {
+				"origin": {
+					"id": "main",
+					"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+					"width": 3199,
+					"height": 3199
+				},
+				"url": "https://images.unsplash.com/photo-1600804931749-2da4ce26c869",
+				"width": 3199,
+				"height": 3199,
+				"edit": {
+					"zoom": 1,
+					"crop": {
+						"x": 0,
+						"y": 0
+					},
+					"background": "transparent"
+				},
+				"alt": "door",
+				"credits": null,
+				"__TYPE__": "ImageContent"
+			},
+			"tagline_heading": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Laboris deserunt cupidatat aliquip in commodo do ut nisi. Laborum consequat occaecat ex ad."
+						}
+					}
+				]
+			},
+			"cta_text": {
+				"__TYPE__": "FieldContent",
+				"value": "meet",
+				"type": "Text"
+			},
+			"cta_link": {
+				"key": "ed524354-f728-473d-8f87-f07b1a894a19",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io"
+				}
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "land",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]
