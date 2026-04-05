@@ -15,6 +15,15 @@ export default defineNuxtConfig({
 
   modules: ["@nuxt/eslint", "@nuxtjs/prismic"],
 
+  imports: {
+    presets: [
+      {
+        from: "@prismicio/vue",
+        imports: ["getSliceComponentProps"],
+      },
+    ],
+  },
+
   prismic: {
     endpoint: repositoryName,
     preview: "/api/preview",
