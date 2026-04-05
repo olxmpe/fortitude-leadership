@@ -73,29 +73,26 @@ const { slice } = defineProps(
   }
 
   &__bottom {
-    margin-top: -80px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
+    transform: translateY($boxed);
 
     &__image {
+      transform: translateY(-30%);
       width: 100%;
-      max-height: 300px;
+      max-height: 350px;
       object-fit: cover;
       display: block;
     }
 
     &__cta {
-      padding: $boxed;
+      padding: 0 $boxed 20%;
       text-align: center;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-
-      @media (min-width: $bp-mobile) {
-        margin-top: 80px;
-      }
     }
   }
 

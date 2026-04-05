@@ -3,7 +3,9 @@ import type { Content } from "@prismicio/client";
 import { asText } from "@prismicio/client";
 import { PrismicImage } from "@prismicio/vue";
 
-const { slice } = defineProps(getSliceComponentProps<Content.SectionHeaderSlice>());
+const { slice } = defineProps(
+  getSliceComponentProps<Content.SectionHeaderSlice>(),
+);
 </script>
 
 <template>
@@ -13,7 +15,10 @@ const { slice } = defineProps(getSliceComponentProps<Content.SectionHeaderSlice>
     class="page-header"
   >
     <div class="page-header__background">
-      <PrismicImage :field="slice.primary.backgroundImage" class="page-header__image" />
+      <PrismicImage
+        :field="slice.primary.backgroundImage"
+        class="page-header__image"
+      />
       <div class="page-header__overlay" />
     </div>
 
@@ -22,6 +27,15 @@ const { slice } = defineProps(getSliceComponentProps<Content.SectionHeaderSlice>
 </template>
 
 <style scoped lang="scss">
+@keyframes header-parallax {
+  from {
+    transform: scale(1.15) translateY(-6%);
+  }
+  to {
+    transform: scale(1.15) translateY(6%);
+  }
+}
+
 .page-header {
   position: relative;
   width: 100%;
@@ -43,19 +57,25 @@ const { slice } = defineProps(getSliceComponentProps<Content.SectionHeaderSlice>
     height: 100%;
     object-fit: cover;
     display: block;
+
+    @supports (animation-timeline: scroll()) {
+      transform: scale(1.15) translateY(-6%);
+      transform-origin: center center;
+      animation: header-parallax linear both;
+      animation-timeline: scroll(root block);
+      animation-range: 0 100vh;
+    }
   }
 
   &__overlay {
     position: absolute;
     inset: 0;
-    background: rgba(0, 0, 0, 0.45);
+    background: $hero-overlay-background;
   }
 
   &__title {
     position: relative;
     z-index: 1;
-    font-size: clamp(2rem, 6vw, 4rem);
-    letter-spacing: 0.02em;
     color: $color-white;
   }
 }

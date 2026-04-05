@@ -2,9 +2,14 @@
 import { PrismicLink } from "@prismicio/vue";
 
 const { data: nav } = await useGlobalNav();
+const route = useRoute();
 
 const scrolled = ref(false);
 const menuOpen = ref(false);
+
+const brandVisible = computed(
+  () => scrolled.value || menuOpen.value || route.path !== "/",
+);
 
 function onScroll() {
   scrolled.value = window.scrollY > 60;
@@ -38,7 +43,7 @@ onUnmounted(() => {
     }"
   >
     <div class="app-nav__inner">
-      <NuxtLink to="/" class="app-nav__brand" @click="closeMenu">
+      <NuxtLink to="/" class="app-nav__brand" :class="{ 'app-nav__brand--hidden': !brandVisible }" @click="closeMenu">
         Fortitude Leadership
       </NuxtLink>
 
@@ -87,8 +92,6 @@ onUnmounted(() => {
 </template>
 
 <style scoped lang="scss">
-$nav-breakpoint: 900px;
-
 .app-nav {
   position: fixed;
   top: 0;
@@ -101,7 +104,7 @@ $nav-breakpoint: 900px;
 
   &--scrolled:not(&--open) {
     background-color: $color-white;
-    box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
+    box-shadow: $box-shadow;
 
     .app-nav__brand,
     .app-nav__link {
@@ -161,10 +164,16 @@ $nav-breakpoint: 900px;
     font-size: $font-size-md;
     color: $color-white;
     text-decoration: none;
-    letter-spacing: 0.04em;
     white-space: nowrap;
-    transition: color 0.3s ease;
+    transition:
+      color 0.3s ease,
+      opacity 0.3s ease;
     z-index: 1;
+
+    &--hidden {
+      opacity: 0;
+      pointer-events: none;
+    }
   }
 
   &__links {
@@ -172,7 +181,7 @@ $nav-breakpoint: 900px;
     align-items: center;
     gap: 2rem;
 
-    @media (max-width: $nav-breakpoint) {
+    @media (max-width: $bp-mobile) {
       display: none;
     }
   }
@@ -206,7 +215,7 @@ $nav-breakpoint: 900px;
     padding: 0;
     z-index: 1;
 
-    @media (max-width: $nav-breakpoint) {
+    @media (max-width: $bp-mobile) {
       display: flex;
     }
   }
@@ -231,7 +240,7 @@ $nav-breakpoint: 900px;
     right: 0;
     bottom: 0;
 
-    @media (max-width: $nav-breakpoint) {
+    @media (max-width: $bp-mobile) {
       display: flex;
       align-items: center;
       justify-content: center;

@@ -32,7 +32,7 @@ body {
 
 h1 {
   font-family: $font-serif;
-  font-size: clamp(1.5rem, 4vw, $font-size-xl);
+  font-size: clamp(2.5rem, 4vw, $font-size-xl);
   font-weight: 400;
   line-height: 1.15;
   color: $color-navy;
@@ -40,14 +40,14 @@ h1 {
 
 h2 {
   font-family: $font-serif;
-  font-size: clamp(1.2rem, 2.5vw, $font-size-lg);
+  font-size: $font-size-lg;
   color: $color-navy;
   margin-bottom: $spacing-sm;
 }
 
 h3 {
-  font-size: clamp(0.95rem, 1.5vw, $font-size-md);
-  font-weight: 500;
+  font-size: $font-size-sm;
+  font-weight: "semibold";
   line-height: 1.4;
   color: $color-navy;
   margin-bottom: $spacing-xs;
@@ -59,13 +59,19 @@ p {
 
   &.quote {
     font-family: $font-serif;
-    font-size: clamp(1.2rem, 2.5vw, $font-size-lg);
+    font-size: $font-size-lg;
     color: $color-navy;
+    line-height: normal;
   }
 }
 
 strong {
   font-weight: 600;
+}
+
+a {
+  color: $color-navy;
+  text-underline-offset: 3px;
 }
 
 img {

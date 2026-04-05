@@ -21,7 +21,7 @@ const { slice } = defineProps(
       <h3 v-if="slice.primary.subheading">{{ slice.primary.subheading }}</h3>
       <PrismicRichText
         :field="slice.primary.description"
-        class="service__description"
+        class="service__content__description"
       />
     </div>
   </section>
@@ -49,14 +49,14 @@ const { slice } = defineProps(
     display: flex;
     flex-direction: column;
     gap: $spacing-xs;
-  }
 
-  &__description {
-    :deep(p) {
-      margin-bottom: $spacing-xs;
+    &__description {
+      :deep(p) {
+        margin-bottom: $spacing-xs;
 
-      &:last-child {
-        margin-bottom: 0;
+        &:last-child {
+          margin-bottom: 0;
+        }
       }
     }
   }

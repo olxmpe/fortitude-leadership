@@ -44,10 +44,6 @@ defineProps<{
     align-items: flex-start;
   }
 
-  &__title {
-    font-size: clamp(1.75rem, 4vw, 3.2rem);
-  }
-
   &__content {
     display: flex;
     flex-direction: column;

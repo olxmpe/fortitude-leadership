@@ -1,0 +1,26 @@
+{
+  "id": "blog_page_description",
+  "type": "SharedSlice",
+  "name": "BlogPageDescription",
+  "description": "BlogPageDescription",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

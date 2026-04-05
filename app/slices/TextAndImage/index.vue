@@ -34,17 +34,21 @@ defineProps(getSliceComponentProps<Content.VisionStatementSlice>());
   align-items: center;
   text-align: center;
 
-  @media (max-width: $bp-mobile) {
-    grid-template-columns: 1fr;
-    padding: $spacing-lg $boxed;
-    gap: $spacing-sm;
-  }
-
   &__image {
     width: 100%;
     max-height: 560px;
     object-fit: cover;
     display: block;
+  }
+
+  @media (max-width: $bp-mobile) {
+    grid-template-columns: 1fr;
+    padding: $spacing-lg $boxed;
+    gap: $spacing-sm;
+
+    &__image {
+      max-height: 300px;
+    }
   }
 }
 </style>

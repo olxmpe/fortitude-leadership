@@ -27,6 +27,20 @@
           "thumbnails": []
         }
       },
+      "category": {
+        "type": "Link",
+        "config": {
+          "label": "Category",
+          "select": "document",
+          "repeat": false,
+          "customtypes": [
+            {
+              "id": "blog_category",
+              "fields": ["name", "description", "featured_image"]
+            }
+          ]
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",

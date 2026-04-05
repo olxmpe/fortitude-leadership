@@ -9,7 +9,7 @@ export default defineNuxtConfig({
       title: "Prismic + Nuxt Minimal Starter",
       htmlAttrs: { lang: "fr" },
       meta: [{ charset: "utf-8" }],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.ico" }],
+      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }],
     },
   },
 
@@ -32,6 +32,7 @@ export default defineNuxtConfig({
         { type: "home", path: "/" },
         { type: "about", path: "/about" },
         { type: "services", path: "/services" },
+        { type: "blog_articles", path: "/blog" },
         { type: "blog_article", path: "/blog/:uid" },
         { type: "event", path: "/event/:uid" },
       ],

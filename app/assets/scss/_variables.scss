@@ -6,12 +6,15 @@ $color-white: #fff;
 $color-black: #1e1e1e;
 $color-gray: #797979;
 
+$box-shadow: 0 1px 12px rgba(0, 0, 0, 0.08);
+$hero-overlay-background: rgba(7, 17, 38, 0.486);
+
 $font-serif: "Italiana", sans-serif;
 $font-sans: "DM Sans", sans-serif;
 
-$font-size-xl: 2rem;
-$font-size-lg: 1.5rem;
-$font-size-md: 1.2rem;
+$font-size-xl: 4rem;
+$font-size-lg: 2rem;
+$font-size-md: 1.5rem;
 $font-size-sm: 1rem;
 $font-size-xs: 0.8rem;
 
@@ -20,7 +23,6 @@ $spacing-lg: 100px;
 $spacing-md: 80px;
 $spacing-sm: 50px;
 $spacing-xs: 20px;
+$boxed: 5%;
 
-$boxed: 8%;
-
-$bp-mobile: 768px;
+$bp-mobile: 850px;
