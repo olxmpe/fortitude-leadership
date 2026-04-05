@@ -82,10 +82,9 @@ const { slice } = defineProps(getSliceComponentProps<Content.HeroSlice>());
 
   &__title {
     font-size: clamp(3rem, 8vw, 5.5rem);
-    font-weight: 400;
     letter-spacing: 0.01em;
-    margin: 0;
     line-height: 1.1;
+    color: $color-white;
   }
 
   &__subtitle {

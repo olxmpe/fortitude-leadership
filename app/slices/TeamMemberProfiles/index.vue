@@ -29,7 +29,11 @@ defineProps(getSliceComponentProps<Content.TeamMemberProfilesSlice>());
 
 <style scoped lang="scss">
 .team {
-  padding: $spacing-lg $spacing-sm;
+  padding: $spacing-lg $boxed;
+
+  @media (max-width: $bp-mobile) {
+    padding: $spacing-lg $boxed;
+  }
 
   &__grid {
     display: grid;
@@ -38,6 +42,7 @@ defineProps(getSliceComponentProps<Content.TeamMemberProfilesSlice>());
 
     @media (max-width: $bp-mobile) {
       grid-template-columns: 1fr;
+      gap: $spacing-lg;
     }
   }
 
@@ -58,15 +63,15 @@ defineProps(getSliceComponentProps<Content.TeamMemberProfilesSlice>());
 
   &__tagline {
     font-weight: 700;
-    color: $color-black;
-    margin: 0;
-    line-height: 1.4;
   }
 
   &__bio {
     :deep(p) {
-      margin: 0 0 0.75rem;
-      line-height: 1.6;
+      margin-bottom: 0.75rem;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
     }
 
     :deep(ul) {
@@ -76,7 +81,6 @@ defineProps(getSliceComponentProps<Content.TeamMemberProfilesSlice>());
 
     :deep(li) {
       margin-bottom: 0.4rem;
-      line-height: 1.5;
     }
   }
 }

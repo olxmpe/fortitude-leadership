@@ -17,7 +17,7 @@ defineProps(getSliceComponentProps<Content.CaseStudySlice>());
       <PrismicImage :field="slice.primary.image" class="case-study__image" />
     </div>
     <div class="case-study__content">
-      <p class="case-study__label">{{ asText(slice.primary.title) }}</p>
+      <h3 class="case-study__label">{{ asText(slice.primary.title) }}</h3>
       <p class="case-study__subtitle">{{ asText(slice.primary.subtitle) }}</p>
       <PrismicRichText :field="slice.primary.body" class="case-study__body" />
     </div>
@@ -31,7 +31,6 @@ defineProps(getSliceComponentProps<Content.CaseStudySlice>());
   min-height: 380px;
   background-color: $color-navy-lighter;
 
-  // Variation: image on the right (default)
   &--default {
     grid-template-columns: 1fr 40%;
 
@@ -41,14 +40,13 @@ defineProps(getSliceComponentProps<Content.CaseStudySlice>());
 
     .case-study__content {
       order: 1;
-      padding: $spacing-sm $spacing-sm $spacing-sm $spacing-md;
+      padding: $spacing-lg $spacing-md $spacing-lg $boxed;
     }
   }
 
-  // Variation: image on the left
   &--caseStudyImageLeft {
     .case-study__content {
-      padding: $spacing-sm $spacing-md $spacing-sm $spacing-sm;
+      padding: $spacing-lg $boxed $spacing-lg $spacing-md;
     }
   }
 
@@ -61,7 +59,7 @@ defineProps(getSliceComponentProps<Content.CaseStudySlice>());
     }
 
     .case-study__content {
-      padding: $spacing-sm !important;
+      padding: $spacing-lg $boxed !important;
     }
   }
 
@@ -80,29 +78,17 @@ defineProps(getSliceComponentProps<Content.CaseStudySlice>());
     display: flex;
     flex-direction: column;
     justify-content: center;
-    gap: 0.75rem;
-  }
-
-  &__label {
-    font-weight: 700;
-    color: $color-navy;
-    margin: 0;
-    font-size: $font-size-sm;
+    gap: $spacing-xs;
   }
 
   &__subtitle {
     font-weight: 600;
-    color: $color-navy;
-    margin: 0;
-    line-height: 1.4;
-    font-size: $font-size-sm;
   }
 
   &__body {
     :deep(p) {
       color: $color-gray;
-      margin: 0 0 0.5rem;
-      line-height: 1.7;
+      margin-bottom: 0.5rem;
 
       &:last-child {
         margin-bottom: 0;

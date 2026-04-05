@@ -24,7 +24,7 @@ defineProps(getSliceComponentProps<Content.TextWithImageSlice>());
       <PrismicLink
         v-if="isFilled.link(slice.primary.button_link)"
         :field="slice.primary.button_link"
-        class="highlight__cta"
+        class="btn"
       />
     </div>
   </section>
@@ -57,23 +57,20 @@ defineProps(getSliceComponentProps<Content.TextWithImageSlice>());
     flex-direction: column;
     justify-content: center;
     gap: $spacing-xs;
-    padding: $spacing-sm $spacing-sm $spacing-sm $spacing-md;
+    padding: $spacing-lg $boxed $spacing-lg $spacing-md;
 
     @media (max-width: $bp-mobile) {
-      padding: $spacing-sm;
+      padding: $spacing-lg $boxed;
     }
   }
 
   &__heading {
     font-style: italic;
-    margin: 0;
-    line-height: 1.3;
   }
 
   &__description {
     :deep(p) {
-      margin: 0 0 0.75rem;
-      line-height: 1.7;
+      margin-bottom: 0.75rem;
 
       &:last-child {
         margin-bottom: 0;
@@ -81,24 +78,8 @@ defineProps(getSliceComponentProps<Content.TextWithImageSlice>());
     }
   }
 
-  &__cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin-top: $spacing-xs;
-    padding: 0.65rem 1.25rem;
-    background-color: $color-navy;
-    color: $color-white;
-    font-family: $font-sans;
-    font-size: $font-size-xs;
-    font-weight: 400;
-    letter-spacing: 0.04em;
-    text-decoration: none;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background-color: $color-navy-dark;
-    }
+  .btn {
+    margin-top: $spacing-sm;
   }
 }
 </style>

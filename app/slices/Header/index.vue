@@ -55,9 +55,8 @@ const { slice } = defineProps(getSliceComponentProps<Content.SectionHeaderSlice>
     position: relative;
     z-index: 1;
     font-size: clamp(2rem, 6vw, 4rem);
-    font-weight: 400;
     letter-spacing: 0.02em;
-    margin: 0;
+    color: $color-white;
   }
 }
 </style>
