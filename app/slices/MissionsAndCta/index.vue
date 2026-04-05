@@ -15,40 +15,34 @@ const { slice } = defineProps(
     class="missions"
   >
     <div class="missions__top">
-      <h2 class="missions__title">{{ slice.primary.title }}</h2>
+      <h2>{{ slice.primary.title }}</h2>
 
-      <div class="missions__values">
-        <div class="missions__value">
-          <h3 class="missions__value-heading">
-            {{ slice.primary.value_one_heading }}
-          </h3>
-          <p class="missions__value-text">{{ asText(slice.primary.value_one_description) }}</p>
+      <div class="missions__top__values">
+        <div class="missions__top__values__value">
+          <h3>{{ slice.primary.value_one_heading }}</h3>
+          <p>{{ asText(slice.primary.value_one_description) }}</p>
         </div>
-        <div class="missions__value">
-          <h3 class="missions__value-heading">
-            {{ slice.primary.value_two_heading }}
-          </h3>
-          <p class="missions__value-text">{{ asText(slice.primary.value_two_description) }}</p>
+        <div class="missions__top__values__value">
+          <h3>{{ slice.primary.value_two_heading }}</h3>
+          <p>{{ asText(slice.primary.value_two_description) }}</p>
         </div>
-        <div class="missions__value">
-          <h3 class="missions__value-heading">
-            {{ slice.primary.value_three_heading }}
-          </h3>
-          <p class="missions__value-text">{{ asText(slice.primary.value_three_description) }}</p>
+        <div class="missions__top__values__value">
+          <h3>{{ slice.primary.value_three_heading }}</h3>
+          <p>{{ asText(slice.primary.value_three_description) }}</p>
         </div>
       </div>
     </div>
 
     <div class="missions__bottom">
-      <div class="missions__image-wrapper">
-        <PrismicImage
-          :field="slice.primary.feature_image"
-          class="missions__image"
-        />
-      </div>
-      <div class="missions__cta-block">
-        <p class="missions__tagline">{{ asText(slice.primary.tagline_heading) }}</p>
-        <PrismicLink :field="slice.primary.cta_link" class="missions__cta">
+      <PrismicImage
+        :field="slice.primary.feature_image"
+        class="missions__bottom__image"
+      />
+      <div class="missions__bottom__cta">
+        <p class="quote">
+          {{ asText(slice.primary.tagline_heading) }}
+        </p>
+        <PrismicLink :field="slice.primary.cta_link" class="btn">
           {{ slice.primary.cta_text }} →
         </PrismicLink>
       </div>
@@ -58,101 +52,62 @@ const { slice } = defineProps(
 
 <style scoped lang="scss">
 .missions {
-  background: $color-navy-lighter;
-  padding: $spacing-xl $spacing-lg 0;
-
-  @media (max-width: $bp-mobile) {
-    padding: 3rem $spacing-sm 0;
+  h2 {
+    text-align: center;
   }
 
   &__top {
-    padding-bottom: $spacing-lg;
-  }
+    padding: $spacing-lg $boxed 200px $boxed;
+    background: $color-navy-lighter;
 
-  &__title {
-    font-size: clamp(2rem, 4vw, 2.8rem);
-    font-weight: 400;
-    text-align: center;
-    margin: 0 0 $spacing-lg;
-  }
+    &__values {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: $boxed;
 
-  &__values {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: $spacing-md $spacing-lg;
-
-    @media (max-width: $bp-mobile) {
-      grid-template-columns: 1fr;
-      gap: $spacing-md;
+      &__value {
+        display: flex;
+        flex-direction: column;
+      }
     }
-  }
-
-  &__value-heading {
-    font-weight: 500;
-    margin: 0 0 $spacing-sm;
-    letter-spacing: 0.01em;
-  }
-
-  &__value-text {
-    font-size: $font-size-xs;
-    line-height: 1.75;
-    margin: 0;
   }
 
   &__bottom {
+    margin-top: -80px;
     display: grid;
     grid-template-columns: 1fr 1fr;
     align-items: center;
-    gap: $spacing-lg;
 
-    @media (max-width: $bp-mobile) {
-      grid-template-columns: 1fr;
-      gap: $spacing-md;
+    &__image {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      display: block;
+    }
+
+    &__cta {
+      padding: $boxed;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      @media (min-width: $bp-mobile) {
+        margin-top: 80px;
+      }
     }
   }
 
-  &__image-wrapper {
-    overflow: hidden;
-  }
+  @media (max-width: $bp-mobile) {
+    &__top {
+      padding: $spacing-lg $boxed 250px $boxed;
+      background: $color-navy-lighter;
+    }
 
-  &__image {
-    width: 100%;
-    max-height: 520px;
-    object-fit: cover;
-    display: block;
-  }
-
-  &__cta-block {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: $spacing-md;
-    padding: $spacing-md 0;
-  }
-
-  &__tagline {
-    font-family: $font-serif;
-    font-size: clamp(1.5rem, 3vw, 2.2rem);
-    font-weight: 400;
-    color: $color-navy;
-    line-height: 1.3;
-    margin: 0;
-    letter-spacing: 0.02em;
-  }
-
-  &__cta {
-    display: inline-block;
-    font-size: $font-size-xs;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    color: $color-white;
-    background: $color-navy;
-    padding: 0.75rem 1.75rem;
-    text-decoration: none;
-    transition: background-color 0.2s ease;
-
-    &:hover {
-      background: $color-navy-light;
+    &__top__values,
+    &__bottom {
+      grid-template-columns: 1fr;
     }
   }
 }

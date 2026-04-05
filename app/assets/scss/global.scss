@@ -18,6 +18,8 @@
 *::before,
 *::after {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
@@ -26,34 +28,70 @@ body {
   font-size: $font-size-sm;
   font-weight: 300;
   color: $color-black;
+}
 
-  h1 {
-    font-family: $font-serif;
-    font-size: $font-size-xl;
-    color: $color-white;
-  }
+h1 {
+  font-family: $font-serif;
+  font-size: clamp(1.5rem, 4vw, $font-size-xl);
+  font-weight: 400;
+  line-height: 1.15;
+  color: $color-navy;
+}
 
-  h2,
-  .quote {
+h2 {
+  font-family: $font-serif;
+  font-size: clamp(1.2rem, 2.5vw, $font-size-lg);
+  color: $color-navy;
+  margin-bottom: $spacing-sm;
+}
+
+h3 {
+  font-size: clamp(0.95rem, 1.5vw, $font-size-md);
+  font-weight: 500;
+  line-height: 1.4;
+  color: $color-navy;
+  margin-bottom: $spacing-xs;
+}
+
+p {
+  font-size: $font-size-sm;
+  line-height: 1.75;
+
+  &.quote {
     font-family: $font-serif;
-    font-size: $font-size-lg;
+    font-size: clamp(1.2rem, 2.5vw, $font-size-lg);
     color: $color-navy;
   }
+}
 
-  h3 {
-    color: $color-navy;
-    font-weight: "bold";
-  }
-
-  p {
-    font-size: $font-size-sm;
-  }
-
-  .text-light {
-    color: $color-gray;
-  }
+strong {
+  font-weight: 600;
 }
 
 img {
   max-width: 100%;
+}
+
+.text-light {
+  color: $color-gray;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.65rem 1.5rem;
+  background-color: $color-navy;
+  color: $color-white;
+  font-family: $font-sans;
+  font-size: $font-size-xs;
+  font-weight: 400;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  margin: $spacing-xs;
+
+  &:hover {
+    background-color: $color-navy-dark;
+    color: $color-white;
+  }
 }
