@@ -126,6 +126,16 @@ type LinkWithText = LinkField & { text?: string };
       margin-right: $spacing-xs;
       color: rgba(255, 255, 255, 0.4);
     }
+
+    @media (max-width: $bp-mobile) {
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+
+      li::before {
+        display: none;
+      }
+    }
   }
 
   &__legal-link {
