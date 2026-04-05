@@ -38,7 +38,7 @@
                 "type": "StructuredText",
                 "config": {
                   "label": "Bio Description",
-                  "multi": "paragraph,strong,em",
+                  "multi": "paragraph,strong,em,list-item",
                   "placeholder": "Brief background..."
                 }
               }

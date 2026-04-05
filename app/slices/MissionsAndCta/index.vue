@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
-import { PrismicRichText, PrismicLink, PrismicImage } from "@prismicio/vue";
+import { asText } from "@prismicio/client";
+import { PrismicLink, PrismicImage } from "@prismicio/vue";
 
 const { slice } = defineProps(
   getSliceComponentProps<Content.MissionValuesSlice>(),
@@ -21,28 +22,19 @@ const { slice } = defineProps(
           <h3 class="missions__value-heading">
             {{ slice.primary.value_one_heading }}
           </h3>
-          <PrismicRichText
-            :field="slice.primary.value_one_description"
-            class="missions__value-text"
-          />
+          <p class="missions__value-text">{{ asText(slice.primary.value_one_description) }}</p>
         </div>
         <div class="missions__value">
           <h3 class="missions__value-heading">
             {{ slice.primary.value_two_heading }}
           </h3>
-          <PrismicRichText
-            :field="slice.primary.value_two_description"
-            class="missions__value-text"
-          />
+          <p class="missions__value-text">{{ asText(slice.primary.value_two_description) }}</p>
         </div>
         <div class="missions__value">
           <h3 class="missions__value-heading">
             {{ slice.primary.value_three_heading }}
           </h3>
-          <PrismicRichText
-            :field="slice.primary.value_three_description"
-            class="missions__value-text"
-          />
+          <p class="missions__value-text">{{ asText(slice.primary.value_three_description) }}</p>
         </div>
       </div>
     </div>
@@ -55,10 +47,7 @@ const { slice } = defineProps(
         />
       </div>
       <div class="missions__cta-block">
-        <PrismicRichText
-          :field="slice.primary.tagline_heading"
-          class="missions__tagline"
-        />
+        <p class="missions__tagline">{{ asText(slice.primary.tagline_heading) }}</p>
         <PrismicLink :field="slice.primary.cta_link" class="missions__cta">
           {{ slice.primary.cta_text }} →
         </PrismicLink>
@@ -105,11 +94,9 @@ const { slice } = defineProps(
   }
 
   &__value-text {
-    :deep(p) {
-      font-size: $font-size-xs;
-      line-height: 1.75;
-      margin: 0;
-    }
+    font-size: $font-size-xs;
+    line-height: 1.75;
+    margin: 0;
   }
 
   &__bottom {
@@ -144,15 +131,13 @@ const { slice } = defineProps(
   }
 
   &__tagline {
-    :deep(p) {
-      font-family: $font-serif;
-      font-size: clamp(1.5rem, 3vw, 2.2rem);
-      font-weight: 400;
-      color: $color-navy;
-      line-height: 1.3;
-      margin: 0;
-      letter-spacing: 0.02em;
-    }
+    font-family: $font-serif;
+    font-size: clamp(1.5rem, 3vw, 2.2rem);
+    font-weight: 400;
+    color: $color-navy;
+    line-height: 1.3;
+    margin: 0;
+    letter-spacing: 0.02em;
   }
 
   &__cta {

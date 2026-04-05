@@ -21,6 +21,10 @@ export default defineNuxtConfig({
     clientConfig: {
       routes: [
         { type: "home", path: "/" },
+        { type: "about", path: "/about" },
+        { type: "services", path: "/services" },
+        { type: "blog_article", path: "/blog/:uid" },
+        { type: "event", path: "/event/:uid" },
       ],
     },
   },

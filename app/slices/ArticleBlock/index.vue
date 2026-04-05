@@ -14,7 +14,7 @@ defineProps<{
     :data-slice-variation="slice.variation"
   >
     <h2>{{ asText(slice.primary.title) }}</h2>
-    <PrismicRichText :field="slice.primary.subtitle" />
+    <p>{{ asText(slice.primary.subtitle) }}</p>
     <PrismicRichText :field="slice.primary.body" />
   </section>
 </template>

@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
+import { asText } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/vue";
 
 const { slice } = defineProps(getSliceComponentProps<Content.LeadershipGuidanceSlice>());
@@ -11,7 +12,7 @@ const { slice } = defineProps(getSliceComponentProps<Content.LeadershipGuidanceS
     :data-slice-variation="slice.variation"
   >
     <div>
-      <PrismicRichText :field="slice.primary.mainHeading" />
+      <h2>{{ asText(slice.primary.mainHeading) }}</h2>
     </div>
     <div>
       <p>{{ slice.primary.subheading }}</p>
