@@ -21,6 +21,10 @@ const { slice } = defineProps(
   max-width: 1000px;
   margin: 0 auto;
 
+  @media (max-width: $bp-mobile) {
+    text-align: left;
+  }
+
   &__text {
     color: $color-gray;
   }

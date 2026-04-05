@@ -164,7 +164,8 @@ useHead({
       color: $color-navy;
     }
 
-    &--active {
+    &--active,
+    &--active:hover {
       background-color: $color-navy;
       border-color: $color-navy;
       color: $color-white;
