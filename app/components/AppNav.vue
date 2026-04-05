@@ -43,7 +43,12 @@ onUnmounted(() => {
     }"
   >
     <div class="app-nav__inner">
-      <NuxtLink to="/" class="app-nav__brand" :class="{ 'app-nav__brand--hidden': !brandVisible }" @click="closeMenu">
+      <NuxtLink
+        to="/"
+        class="app-nav__brand"
+        :class="{ 'app-nav__brand--hidden': !brandVisible }"
+        @click="closeMenu"
+      >
         Fortitude Leadership
       </NuxtLink>
 
@@ -108,7 +113,7 @@ onUnmounted(() => {
 
     .app-nav__brand,
     .app-nav__link {
-      color: $color-gray;
+      color: $color-navy;
     }
 
     .app-nav__link--bold {
