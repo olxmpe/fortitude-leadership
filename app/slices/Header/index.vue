@@ -58,12 +58,14 @@ const { slice } = defineProps(
     object-fit: cover;
     display: block;
 
-    @supports (animation-timeline: scroll()) {
-      transform: scale(1.15) translateY(-6%);
-      transform-origin: center center;
-      animation: header-parallax linear both;
-      animation-timeline: scroll(root block);
-      animation-range: 0 100vh;
+    @media (min-width: $bp-mobile) {
+      @supports (animation-timeline: scroll()) {
+        transform: scale(1.15) translateY(-6%);
+        transform-origin: center center;
+        animation: header-parallax linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 0 100vh;
+      }
     }
   }
 
