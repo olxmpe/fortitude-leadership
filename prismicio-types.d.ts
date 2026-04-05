@@ -1469,16 +1469,6 @@ export type TestimonialSlice = prismic.SharedSlice<
  */
 export interface TextWithImageSliceDefaultPrimary {
   /**
-   * Image field in *HighlightedTextAndmage → Default → Primary*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.default.primary.image
-   * - **Documentation**: https://prismic.io/docs/fields/image
-   */
-  image: prismic.ImageField<never>;
-
-  /**
    * Heading field in *HighlightedTextAndmage → Default → Primary*
    *
    * - **Field Type**: Rich Text

@@ -30,6 +30,7 @@ defineProps(getSliceComponentProps<Content.TeamMemberProfilesSlice>());
 <style scoped lang="scss">
 .team {
   padding: $spacing-lg $boxed;
+  background-color: $color-navy-lighter;
 
   @media (max-width: $bp-mobile) {
     padding: $spacing-lg $boxed;
@@ -47,10 +48,11 @@ defineProps(getSliceComponentProps<Content.TeamMemberProfilesSlice>());
   }
 
   &__member {
+    padding: $boxed;
     display: flex;
     flex-direction: column;
-    align-items: flex-start;
-    gap: $spacing-xs;
+    align-items: center;
+    gap: $spacing-sm;
   }
 
   &__photo {
