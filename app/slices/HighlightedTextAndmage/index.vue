@@ -29,6 +29,6 @@ defineProps(getSliceComponentProps<Content.TextWithImageSlice>());
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding: $boxed 20%;
+  padding: $spacing-lg $boxed;
 }
 </style>
