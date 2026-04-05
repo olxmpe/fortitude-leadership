@@ -412,6 +412,89 @@ export type EventDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<EventDocumentData>, "event", Lang>;
 
 /**
+ * Item in *Footer → Footer block*
+ */
+export interface FooterDocumentDataFooterBlockItem {
+  /**
+   * Title field in *Footer → Footer block*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_block[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Link field in *Footer → Footer block*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_block[].link
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Content for Footer documents
+ */
+interface FooterDocumentData {
+  /**
+   * Footer block field in *Footer*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.footer_block[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  footer_block: prismic.GroupField<Simplify<FooterDocumentDataFooterBlockItem>>;
+
+  /**
+   * Copyright field in *Footer*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.copyright
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  copyright: prismic.KeyTextField;
+
+  /**
+   * Legal link field in *Footer*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: footer.legal_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  legal_link: prismic.Repeatable<
+    prismic.LinkField<string, string, unknown, prismic.FieldState, never>
+  >;
+}
+
+/**
+ * Footer document from Prismic
+ *
+ * - **API ID**: `footer`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type FooterDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<FooterDocumentData>,
+    "footer",
+    Lang
+  >;
+
+/**
  * Item in *Global Navigation → Nav Item*
  */
 export interface GlobalNavigationDocumentDataNavItemItem {
@@ -620,6 +703,7 @@ export type AllDocumentTypes =
   | BlogArticlesDocument
   | BlogCategoryDocument
   | EventDocument
+  | FooterDocument
   | GlobalNavigationDocument
   | HomeDocument
   | ServicesDocument;
@@ -1635,6 +1719,9 @@ declare module "@prismicio/client" {
       EventDocument,
       EventDocumentData,
       EventDocumentDataModuleItem,
+      FooterDocument,
+      FooterDocumentData,
+      FooterDocumentDataFooterBlockItem,
       GlobalNavigationDocument,
       GlobalNavigationDocumentData,
       GlobalNavigationDocumentDataNavItemItem,

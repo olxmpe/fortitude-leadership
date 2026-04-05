@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
-import { PrismicImage, PrismicRichText } from "@prismicio/vue";
+import { PrismicImage } from "@prismicio/vue";
 
 defineProps(getSliceComponentProps<Content.TeamMemberProfilesSlice>());
 </script>
@@ -20,7 +20,7 @@ defineProps(getSliceComponentProps<Content.TeamMemberProfilesSlice>());
         <PrismicImage :field="member.image" class="team__photo" />
         <div class="team__content">
           <p class="team__tagline">{{ member.title }}</p>
-          <PrismicRichText :field="member.bio" class="team__bio" />
+          <AppRichText :field="member.bio" />
         </div>
       </div>
     </div>
@@ -65,25 +65,8 @@ defineProps(getSliceComponentProps<Content.TeamMemberProfilesSlice>());
 
   &__tagline {
     font-weight: 700;
+    margin-bottom: $spacing-xs;
   }
 
-  &__bio {
-    :deep(p) {
-      margin-bottom: 0.75rem;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
-
-    :deep(ul) {
-      margin: 0 0 0.75rem;
-      padding-left: 1.25rem;
-    }
-
-    :deep(li) {
-      margin-bottom: 0.4rem;
-    }
-  }
 }
 </style>
