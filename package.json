@@ -25,6 +25,7 @@
     "slice-machine-ui": "^2.21.2"
   },
   "dependencies": {
+    "resend": "^6.10.0",
     "sass": "^1.99.0"
   }
 }

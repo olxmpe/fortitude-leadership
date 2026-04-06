@@ -33,6 +33,7 @@ export default defineNuxtConfig({
         { type: "about", path: "/about" },
         { type: "services", path: "/services" },
         { type: "blog_articles", path: "/blog" },
+        { type: "contact", path: "/contact" },
         { type: "blog_article", path: "/blog/:uid" },
         { type: "event", path: "/event/:uid" },
       ],

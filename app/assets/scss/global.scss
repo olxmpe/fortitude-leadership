@@ -124,6 +124,8 @@ img {
   text-decoration: none;
   transition: background-color 0.2s ease;
   margin: $spacing-xs;
+  cursor: pointer;
+  border: none;
 
   &:hover {
     background-color: $color-navy-dark;
