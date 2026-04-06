@@ -13,9 +13,6 @@
           "choices": {
             "section_header": {
               "type": "SharedSlice"
-            },
-            "blog_page_description": {
-              "type": "SharedSlice"
             }
           }
         }

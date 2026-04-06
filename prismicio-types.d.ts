@@ -204,9 +204,7 @@ export type BlogArticleDocument<Lang extends string = string> =
     Lang
   >;
 
-type BlogArticlesDocumentDataSlicesSlice =
-  | SectionHeaderSlice
-  | BlogPageDescriptionSlice;
+type BlogArticlesDocumentDataSlicesSlice = SectionHeaderSlice;
 
 /**
  * Content for Blog articles documents
@@ -707,51 +705,6 @@ export type AllDocumentTypes =
   | GlobalNavigationDocument
   | HomeDocument
   | ServicesDocument;
-
-/**
- * Primary content in *BlogPageDescription → Default → Primary*
- */
-export interface BlogPageDescriptionSliceDefaultPrimary {
-  /**
-   * Description field in *BlogPageDescription → Default → Primary*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: blog_page_description.default.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  description: prismic.KeyTextField;
-}
-
-/**
- * Default variation for BlogPageDescription Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type BlogPageDescriptionSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<BlogPageDescriptionSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *BlogPageDescription*
- */
-type BlogPageDescriptionSliceVariation = BlogPageDescriptionSliceDefault;
-
-/**
- * BlogPageDescription Shared Slice
- *
- * - **API ID**: `blog_page_description`
- * - **Description**: BlogPageDescription
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type BlogPageDescriptionSlice = prismic.SharedSlice<
-  "blog_page_description",
-  BlogPageDescriptionSliceVariation
->;
 
 /**
  * Primary content in *CaseStudy → Default → Primary*
@@ -1732,10 +1685,6 @@ declare module "@prismicio/client" {
       ServicesDocumentData,
       ServicesDocumentDataSlicesSlice,
       AllDocumentTypes,
-      BlogPageDescriptionSlice,
-      BlogPageDescriptionSliceDefaultPrimary,
-      BlogPageDescriptionSliceVariation,
-      BlogPageDescriptionSliceDefault,
       CaseStudySlice,
       CaseStudySliceDefaultPrimary,
       CaseStudySliceCaseStudyImageLeftPrimary,
