@@ -43,7 +43,7 @@ const { slice } = defineProps(
           {{ asText(slice.primary.tagline_heading) }}
         </p>
         <PrismicLink :field="slice.primary.cta_link" class="btn">
-          {{ slice.primary.cta_text }} →
+          {{ slice.primary.cta_text }}
         </PrismicLink>
       </div>
     </div>

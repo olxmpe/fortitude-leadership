@@ -33,7 +33,7 @@ const status = ref<"idle" | "loading" | "success" | "error">("idle");
 function validate() {
   errors.lastName = !form.lastName.trim();
   errors.firstName = !form.firstName.trim();
-  errors.email = !form.email.trim() || !form.email.includes("@");
+  errors.email = !form.email.trim() || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email);
   errors.message = !form.message.trim();
   return !Object.values(errors).some(Boolean);
 }
