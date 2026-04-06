@@ -8,8 +8,11 @@ const [{ data: page, error }, { data: articles }] = await Promise.all([
   useLatestArticles(3),
 ]);
 
-useHead({
-  title: page.value?.data.meta_title ?? "Fortitude Leadership",
+useSeo({
+  title: page.value?.data.meta_title,
+  description: page.value?.data.meta_description,
+  image: page.value?.data.meta_image,
+  fallbackTitle: "Fortitude Leadership",
 });
 </script>
 

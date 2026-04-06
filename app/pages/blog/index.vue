@@ -50,8 +50,15 @@ function goToPage(p: number) {
   });
 }
 
+useSeo({
+  title: page.value?.data.meta_title,
+  description: page.value?.data.meta_description,
+  image: page.value?.data.meta_image,
+  fallbackTitle: "Blog — Fortitude Leadership",
+});
+
 useHead({
-  title: page.value?.data.meta_title ?? "Blog — Fortitude Leadership",
+  link: [{ rel: "alternate", type: "application/rss+xml", title: "Fortitude Leadership — Blog", href: "/rss.xml" }],
 });
 </script>
 

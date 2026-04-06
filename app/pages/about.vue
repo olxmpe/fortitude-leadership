@@ -6,8 +6,11 @@ const { data: page, error } = await useAsyncData("about", () =>
   client.getSingle("about"),
 );
 
-useHead({
-  title: page.value?.data.meta_title ?? "À propos — Fortitude Leadership",
+useSeo({
+  title: page.value?.data.meta_title,
+  description: page.value?.data.meta_description,
+  image: page.value?.data.meta_image,
+  fallbackTitle: "À propos — Fortitude Leadership",
 });
 </script>
 

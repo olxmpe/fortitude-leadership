@@ -11,8 +11,42 @@ const { data: page, error } = await useAsyncData(uid, () =>
   client.getByUID("blog_article", uid),
 );
 
+const siteUrl = "https://www.fortitude-leadership.com";
+
+useSeo({
+  title: page.value?.data.title,
+  image: page.value?.data.image,
+  type: "article",
+  fallbackTitle: "Article — Fortitude Leadership",
+});
+
 useHead({
-  title: page.value?.data.title ?? "Article — Fortitude Leadership",
+  script: page.value
+    ? [
+        {
+          type: "application/ld+json",
+          innerHTML: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BlogPosting",
+            headline: page.value.data.title,
+            image: page.value.data.image?.url ?? undefined,
+            url: `${siteUrl}/blog/${page.value.uid}`,
+            datePublished: page.value.first_publication_date,
+            dateModified: page.value.last_publication_date,
+            author: {
+              "@type": "Organization",
+              name: "Fortitude Leadership",
+              url: siteUrl,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Fortitude Leadership",
+              url: siteUrl,
+            },
+          }),
+        },
+      ]
+    : [],
 });
 </script>
 

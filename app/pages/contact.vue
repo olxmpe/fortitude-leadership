@@ -6,8 +6,11 @@ const { data: page } = await useAsyncData("contact", () =>
   client.getSingle("contact"),
 );
 
-useHead({
-  title: page.value?.data.meta_title ?? "Contact — Fortitude Leadership",
+useSeo({
+  title: page.value?.data.meta_title,
+  description: page.value?.data.meta_description,
+  image: page.value?.data.meta_image,
+  fallbackTitle: "Contact — Fortitude Leadership",
 });
 
 const form = reactive({
