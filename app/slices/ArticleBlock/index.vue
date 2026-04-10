@@ -35,8 +35,8 @@ defineProps<{
 
   @media (max-width: $bp-mobile) {
     grid-template-columns: 1fr;
-    padding: $spacing-lg $boxed;
-    gap: $spacing-sm;
+    padding: $spacing-sm $boxed;
+    gap: $spacing-xs;
   }
 
   &__heading {
