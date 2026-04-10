@@ -79,6 +79,8 @@ const { slice } = defineProps(
     position: relative;
     z-index: 1;
     color: $color-white;
+    text-align: center;
+    padding: 0 $boxed;
   }
 }
 </style>
