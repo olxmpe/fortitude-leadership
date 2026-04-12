@@ -5,7 +5,9 @@ import { components } from "~/slices";
 const { client } = usePrismic();
 const route = useRoute();
 
-const selectedCategoryUid = computed(() => route.query.category as string | undefined);
+const selectedCategoryUid = computed(
+  () => route.query.category as string | undefined,
+);
 const currentPage = computed(() => Number(route.query.page) || 1);
 
 const [{ data: page }, { data: categories }] = await Promise.all([
@@ -28,9 +30,15 @@ const { data: articlesQuery, pending } = await useAsyncData(
     client.getByType("blog_article", {
       pageSize: 9,
       page: currentPage.value,
-      orderings: [{ field: "document.last_publication_date", direction: "desc" }],
+      orderings: [
+        { field: "document.last_publication_date", direction: "desc" },
+      ],
       ...(selectedCategoryId.value
-        ? { filters: [filter.at("my.blog_article.category", selectedCategoryId.value)] }
+        ? {
+            filters: [
+              filter.at("my.blog_article.category", selectedCategoryId.value),
+            ],
+          }
         : {}),
       fetchLinks: ["blog_category.name"],
     }),
@@ -44,7 +52,9 @@ function selectCategory(uid: string | undefined) {
 function goToPage(p: number) {
   navigateTo({
     query: {
-      ...(selectedCategoryUid.value ? { category: selectedCategoryUid.value } : {}),
+      ...(selectedCategoryUid.value
+        ? { category: selectedCategoryUid.value }
+        : {}),
       ...(p > 1 ? { page: String(p) } : {}),
     },
   });
@@ -58,7 +68,14 @@ useSeo({
 });
 
 useHead({
-  link: [{ rel: "alternate", type: "application/rss+xml", title: "Fortitude Leadership — Blog", href: "/rss.xml" }],
+  link: [
+    {
+      rel: "alternate",
+      type: "application/rss+xml",
+      title: "Fortitude Leadership — Blog",
+      href: "/rss.xml",
+    },
+  ],
 });
 </script>
 
@@ -98,7 +115,9 @@ useHead({
             :article="article"
           />
         </template>
-        <p v-else-if="!pending" class="blog__empty">Aucun article pour le moment.</p>
+        <p v-else-if="!pending" class="blog__empty">
+          Aucun article pour le moment.
+        </p>
       </div>
 
       <nav
