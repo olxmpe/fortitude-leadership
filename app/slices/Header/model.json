@@ -22,7 +22,8 @@
         "backgroundImage": {
           "type": "Image",
           "config": {
-            "label": "Background Image"
+            "label": "Background Image",
+            "constraint": { "width": 1200, "height": 800 }
           }
         }
       },

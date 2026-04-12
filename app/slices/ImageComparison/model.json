@@ -15,13 +15,15 @@
         "leftImage": {
           "type": "Image",
           "config": {
-            "label": "Left Image"
+            "label": "Left Image",
+            "constraint": { "width": 1200, "height": 800 }
           }
         },
         "rightImage": {
           "type": "Image",
           "config": {
-            "label": "Right Image"
+            "label": "Right Image",
+            "constraint": { "width": 1200, "height": 800 }
           }
         }
       },
@@ -38,13 +40,15 @@
         "leftImage": {
           "type": "Image",
           "config": {
-            "label": "Left Image"
+            "label": "Left Image",
+            "constraint": { "width": 1200, "height": 800 }
           }
         },
         "rightImage": {
           "type": "Image",
           "config": {
-            "label": "Right Image"
+            "label": "Right Image",
+            "constraint": { "width": 1200, "height": 800 }
           }
         }
       },

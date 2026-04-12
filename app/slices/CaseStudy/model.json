@@ -36,7 +36,7 @@
         "image": {
           "type": "Image",
           "config": {
-            "constraint": {},
+            "constraint": { "width": 1200, "height": 800 },
             "label": "Image"
           }
         }
@@ -75,7 +75,7 @@
         "image": {
           "type": "Image",
           "config": {
-            "constraint": {},
+            "constraint": { "width": 1200, "height": 800 },
             "label": "Image"
           }
         }

@@ -48,10 +48,10 @@
           "type": "Image",
           "config": {
             "label": "Background Image",
-            "constraint": {
-              "width": 1920,
-              "height": 1080
-            }
+            "constraint": { "width": 1200, "height": 800 },
+            "thumbnails": [
+              { "name": "Mobile", "width": 800, "height": 1000 }
+            ]
           }
         }
       },

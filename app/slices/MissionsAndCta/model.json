@@ -64,7 +64,8 @@
         "feature_image": {
           "type": "Image",
           "config": {
-            "label": "Feature Image"
+            "label": "Feature Image",
+            "constraint": { "width": 1200, "height": 800 }
           }
         },
         "tagline_heading": {

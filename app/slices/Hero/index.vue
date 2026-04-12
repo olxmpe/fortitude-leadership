@@ -14,10 +14,16 @@ const { slice } = defineProps(getSliceComponentProps<Content.HeroSlice>());
   >
     <div class="hero__background">
       <PrismicImage
-        :field="slice.primary.backgroundImage"
-        :widths="[400, 800, 1200, 1920, 2560]"
+        v-if="slice.primary.backgroundImage.Mobile"
+        :field="slice.primary.backgroundImage.Mobile"
         sizes="100vw"
-        class="hero__background__image"
+        class="hero__background__image hero__background__image--mobile"
+      />
+      <PrismicImage
+        :field="slice.primary.backgroundImage"
+        :widths="[800, 1200]"
+        sizes="100vw"
+        class="hero__background__image hero__background__image--desktop"
       />
       <div class="hero__background__overlay" />
     </div>
@@ -74,13 +80,27 @@ const { slice } = defineProps(getSliceComponentProps<Content.HeroSlice>());
       object-fit: cover;
       display: block;
 
-      @media (min-width: $bp-mobile) {
-        @supports (animation-timeline: scroll()) {
-          transform: scale(1.15) translateY(-6%);
-          transform-origin: center center;
-          animation: hero-parallax linear both;
-          animation-timeline: scroll(root block);
-          animation-range: 0 100vh;
+      &--mobile {
+        display: block;
+
+        @media (min-width: $bp-mobile) {
+          display: none;
+        }
+      }
+
+      &--desktop {
+        display: none;
+
+        @media (min-width: $bp-mobile) {
+          display: block;
+
+          @supports (animation-timeline: scroll()) {
+            transform: scale(1.15) translateY(-6%);
+            transform-origin: center center;
+            animation: hero-parallax linear both;
+            animation-timeline: scroll(root block);
+            animation-range: 0 100vh;
+          }
         }
       }
     }
