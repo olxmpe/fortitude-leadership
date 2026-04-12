@@ -18,6 +18,8 @@ useSeo({
   image: page.value?.data.image,
   type: "article",
   fallbackTitle: "Article — Fortitude Leadership",
+  publishedTime: page.value?.first_publication_date,
+  modifiedTime: page.value?.last_publication_date,
 });
 
 useHead({
@@ -31,6 +33,7 @@ useHead({
             headline: page.value.data.title,
             image: page.value.data.image?.url ?? undefined,
             url: `${siteUrl}/blog/${page.value.uid}`,
+            inLanguage: "fr",
             datePublished: page.value.first_publication_date,
             dateModified: page.value.last_publication_date,
             author: {
@@ -42,7 +45,25 @@ useHead({
               "@type": "Organization",
               name: "Fortitude Leadership",
               url: siteUrl,
+              logo: { "@type": "ImageObject", url: `${siteUrl}/favicon.png` },
             },
+          }),
+        },
+        {
+          type: "application/ld+json",
+          innerHTML: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "BreadcrumbList",
+            itemListElement: [
+              { "@type": "ListItem", position: 1, name: "Accueil", item: siteUrl },
+              { "@type": "ListItem", position: 2, name: "Blog", item: `${siteUrl}/blog` },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: page.value.data.title ?? "Article",
+                item: `${siteUrl}/blog/${page.value.uid}`,
+              },
+            ],
           }),
         },
       ]

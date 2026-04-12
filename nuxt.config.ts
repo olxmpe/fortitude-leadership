@@ -6,13 +6,23 @@ export default defineNuxtConfig({
 
   app: {
     head: {
-      title: "Prismic + Nuxt Minimal Starter",
+      title: "Fortitude Leadership",
       htmlAttrs: { lang: "fr" },
       meta: [
         { charset: "utf-8" },
         { name: "viewport", content: "width=device-width, initial-scale=1" },
+        { name: "theme-color", content: "#1e3f61" },
+        {
+          name: "description",
+          content:
+            "Fortitude Leadership — accompagnement en leadership, développement personnel et performance collective.",
+        },
       ],
-      link: [{ rel: "icon", type: "image/x-icon", href: "/favicon.png" }],
+      link: [
+        { rel: "icon", type: "image/x-icon", href: "/favicon.png" },
+        { rel: "preconnect", href: "https://images.prismic.io" },
+        { rel: "preconnect", href: "https://static.cdn.prismic.io" },
+      ],
     },
   },
 

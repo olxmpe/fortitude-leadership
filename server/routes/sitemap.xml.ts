@@ -35,6 +35,7 @@ export default defineEventHandler(async (event) => {
     loc: `${siteUrl}/legal/${p.uid}`,
     priority: "0.3",
     changefreq: "yearly",
+    lastmod: p.last_publication_date.split("T")[0],
   }));
 
   const allUrls = [...staticUrls, ...articleUrls, ...legalUrls];

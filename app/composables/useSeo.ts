@@ -4,9 +4,21 @@ interface SeoOptions {
   image?: { url?: string | null } | null;
   type?: "website" | "article";
   fallbackTitle: string;
+  publishedTime?: string | null;
+  modifiedTime?: string | null;
+  noindex?: boolean;
 }
 
-export const useSeo = ({ title, description, image, type = "website", fallbackTitle }: SeoOptions) => {
+export const useSeo = ({
+  title,
+  description,
+  image,
+  type = "website",
+  fallbackTitle,
+  publishedTime,
+  modifiedTime,
+  noindex = false,
+}: SeoOptions) => {
   const siteUrl = "https://www.fortitude-leadership.com";
   const route = useRoute();
   const canonical = `${siteUrl}${route.path}`;
@@ -16,6 +28,7 @@ export const useSeo = ({ title, description, image, type = "website", fallbackTi
   useSeoMeta({
     title: resolvedTitle,
     ogTitle: resolvedTitle,
+    ogSiteName: "Fortitude Leadership",
     description: description || undefined,
     ogDescription: description || undefined,
     ogImage: image?.url ?? undefined,
@@ -25,6 +38,9 @@ export const useSeo = ({ title, description, image, type = "website", fallbackTi
     twitterTitle: resolvedTitle,
     twitterDescription: description || undefined,
     twitterImage: image?.url ?? undefined,
+    robots: noindex ? "noindex, follow" : undefined,
+    articlePublishedTime: type === "article" ? (publishedTime ?? undefined) : undefined,
+    articleModifiedTime: type === "article" ? (modifiedTime ?? undefined) : undefined,
   });
 
   useHead({

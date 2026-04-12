@@ -14,6 +14,7 @@ useSeo({
   description: page.value?.data.meta_description,
   image: page.value?.data.meta_image,
   fallbackTitle: "Mentions légales — Fortitude Leadership",
+  noindex: true,
 });
 </script>
 

@@ -14,6 +14,35 @@ useSeo({
   image: page.value?.data.meta_image,
   fallbackTitle: "Fortitude Leadership",
 });
+
+const siteUrl = "https://www.fortitude-leadership.com";
+
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        name: "Fortitude Leadership",
+        url: siteUrl,
+        logo: `${siteUrl}/favicon.png`,
+        sameAs: [],
+      }),
+    },
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: "Fortitude Leadership",
+        url: siteUrl,
+        inLanguage: "fr",
+        publisher: { "@type": "Organization", name: "Fortitude Leadership" },
+      }),
+    },
+  ],
+});
 </script>
 
 <template>

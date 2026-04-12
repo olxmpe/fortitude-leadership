@@ -1054,7 +1054,7 @@ export interface HeroSliceDefaultPrimary {
    * - **API ID Path**: hero.default.primary.backgroundImage
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  backgroundImage: prismic.ImageField<never>;
+  backgroundImage: prismic.ImageField<"mobile">;
 }
 
 /**

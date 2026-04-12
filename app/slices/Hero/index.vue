@@ -14,8 +14,8 @@ const { slice } = defineProps(getSliceComponentProps<Content.HeroSlice>());
   >
     <div class="hero__background">
       <PrismicImage
-        v-if="slice.primary.backgroundImage.Mobile"
-        :field="slice.primary.backgroundImage.Mobile"
+        v-if="slice.primary.backgroundImage.mobile"
+        :field="slice.primary.backgroundImage.mobile"
         sizes="100vw"
         class="hero__background__image hero__background__image--mobile"
       />
