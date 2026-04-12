@@ -13,10 +13,10 @@
       "imageUrl": "",
       "primary": {
         "title": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Title",
-            "single": "heading1"
+            "placeholder": ""
           }
         },
         "description": {

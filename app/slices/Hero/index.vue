@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
-import { asText, isFilled } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 import { PrismicImage, PrismicLink } from "@prismicio/vue";
 
 const { slice } = defineProps(getSliceComponentProps<Content.HeroSlice>());
@@ -23,9 +23,9 @@ const { slice } = defineProps(getSliceComponentProps<Content.HeroSlice>());
     </div>
 
     <div class="hero__content">
-      <h1 class="hero__content__title">{{ asText(slice.primary.title) }}</h1>
+      <h1 class="hero__content__title">{{ toText(slice.primary.title) }}</h1>
       <span class="hero__content__subtitle">
-        {{ asText(slice.primary.subtitle) }}
+        {{ toText(slice.primary.subtitle) }}
       </span>
       <PrismicLink
         v-if="slice.primary.cta && isFilled.link(slice.primary.cta)"
@@ -37,9 +37,7 @@ const { slice } = defineProps(getSliceComponentProps<Content.HeroSlice>());
     </div>
 
     <div class="hero__footer">
-      <span class="hero__footer-text">{{
-        asText(slice.primary.footerText)
-      }}</span>
+      <span class="hero__footer-text">{{ toText(slice.primary.footerText) }}</span>
     </div>
   </section>
 </template>

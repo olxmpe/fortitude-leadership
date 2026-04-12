@@ -13,17 +13,17 @@
       "imageUrl": "",
       "primary": {
         "title": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Title",
-            "single": "heading2"
+            "placeholder": ""
           }
         },
         "subtitle": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Subtitle",
-            "single": "paragraph"
+            "placeholder": ""
           }
         },
         "body": {
@@ -52,17 +52,17 @@
       "imageUrl": "",
       "primary": {
         "title": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Title",
-            "single": "heading2"
+            "placeholder": ""
           }
         },
         "subtitle": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Subtitle",
-            "single": "paragraph"
+            "placeholder": ""
           }
         },
         "body": {

@@ -27,10 +27,10 @@
           }
         },
         "value_one_description": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "First Value Description",
-            "single": "paragraph"
+            "placeholder": ""
           }
         },
         "value_two_heading": {
@@ -41,10 +41,10 @@
           }
         },
         "value_two_description": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Second Value Description",
-            "single": "paragraph"
+            "placeholder": ""
           }
         },
         "value_three_heading": {
@@ -55,10 +55,10 @@
           }
         },
         "value_three_description": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Third Value Description",
-            "single": "paragraph"
+            "placeholder": ""
           }
         },
         "feature_image": {
@@ -68,10 +68,10 @@
           }
         },
         "tagline_heading": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Tagline Heading",
-            "single": "paragraph"
+            "placeholder": ""
           }
         },
         "cta_text": {

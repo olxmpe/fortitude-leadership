@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
-import { asText } from "@prismicio/client";
 import { PrismicLink, PrismicImage } from "@prismicio/vue";
 
 const { slice } = defineProps(
@@ -20,15 +19,15 @@ const { slice } = defineProps(
       <div class="missions__top__values">
         <div class="missions__top__values__value">
           <h3>{{ slice.primary.value_one_heading }}</h3>
-          <p>{{ asText(slice.primary.value_one_description) }}</p>
+          <p>{{ toText(slice.primary.value_one_description) }}</p>
         </div>
         <div class="missions__top__values__value">
           <h3>{{ slice.primary.value_two_heading }}</h3>
-          <p>{{ asText(slice.primary.value_two_description) }}</p>
+          <p>{{ toText(slice.primary.value_two_description) }}</p>
         </div>
         <div class="missions__top__values__value">
           <h3>{{ slice.primary.value_three_heading }}</h3>
-          <p>{{ asText(slice.primary.value_three_description) }}</p>
+          <p>{{ toText(slice.primary.value_three_description) }}</p>
         </div>
       </div>
     </div>
@@ -40,7 +39,7 @@ const { slice } = defineProps(
       />
       <div class="missions__bottom__cta">
         <p class="quote">
-          {{ asText(slice.primary.tagline_heading) }}
+          {{ toText(slice.primary.tagline_heading) }}
         </p>
         <PrismicLink :field="slice.primary.cta_link" class="btn">
           {{ slice.primary.cta_text }}

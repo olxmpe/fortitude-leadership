@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
-import { asText } from "@prismicio/client";
 import { PrismicRichText } from "@prismicio/vue";
 
 const { slice } = defineProps(
@@ -15,7 +14,7 @@ const { slice } = defineProps(
     class="service"
   >
     <div class="service__heading">
-      <h2>{{ asText(slice.primary.mainHeading) }}</h2>
+      <h2>{{ toText(slice.primary.mainHeading) }}</h2>
     </div>
     <div class="service__content">
       <h3 v-if="slice.primary.subheading">{{ slice.primary.subheading }}</h3>

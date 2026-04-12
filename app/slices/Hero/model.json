@@ -13,18 +13,16 @@
       "imageUrl": "",
       "primary": {
         "title": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Title",
-            "single": "heading1",
             "placeholder": "Enter hero title"
           }
         },
         "subtitle": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Subtitle",
-            "single": "paragraph",
             "placeholder": "Enter hero subtitle"
           }
         },
@@ -40,12 +38,10 @@
           }
         },
         "footerText": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Additional text",
-            "placeholder": "Enter footer descriptive text",
-            "allowTargetBlank": true,
-            "single": "paragraph"
+            "placeholder": "Enter footer descriptive text"
           }
         },
         "backgroundImage": {

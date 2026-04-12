@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
-import { asText } from "@prismicio/client";
 import { PrismicImage } from "@prismicio/vue";
 
 const { slice } = defineProps(
@@ -22,7 +21,7 @@ const { slice } = defineProps(
       <div class="page-header__overlay" />
     </div>
 
-    <h1 class="page-header__title">{{ asText(slice.primary.heading) }}</h1>
+    <h1 class="page-header__title">{{ toText(slice.primary.heading) }}</h1>
   </section>
 </template>
 

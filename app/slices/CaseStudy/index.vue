@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
-import { asText } from "@prismicio/client";
 import { PrismicImage, PrismicRichText } from "@prismicio/vue";
 
 defineProps(getSliceComponentProps<Content.CaseStudySlice>());
@@ -17,8 +16,8 @@ defineProps(getSliceComponentProps<Content.CaseStudySlice>());
       <PrismicImage :field="slice.primary.image" class="case-study__image" />
     </div>
     <div class="case-study__content">
-      <h3 class="case-study__label">{{ asText(slice.primary.title) }}</h3>
-      <p class="case-study__subtitle">{{ asText(slice.primary.subtitle) }}</p>
+      <h3 class="case-study__label">{{ toText(slice.primary.title) }}</h3>
+      <p class="case-study__subtitle">{{ toText(slice.primary.subtitle) }}</p>
       <PrismicRichText :field="slice.primary.body" class="case-study__body" />
     </div>
   </section>

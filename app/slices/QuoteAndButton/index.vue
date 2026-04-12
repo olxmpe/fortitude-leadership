@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
-import { asText, isFilled } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 import { getSliceComponentProps, PrismicLink } from "@prismicio/vue";
 
 defineProps(getSliceComponentProps<Content.TestimonialSlice>());
@@ -15,7 +15,7 @@ defineProps(getSliceComponentProps<Content.TestimonialSlice>());
     <p v-if="slice.primary.author" class="quote-cta__author">
       {{ slice.primary.author }}
     </p>
-    <p class="quote">{{ asText(slice.primary.quote) }}</p>
+    <p class="quote">{{ toText(slice.primary.quote) }}</p>
     <PrismicLink
       v-if="isFilled.link(slice.primary.button)"
       :field="slice.primary.button"

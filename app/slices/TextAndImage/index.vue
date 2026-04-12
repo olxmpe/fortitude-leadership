@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
-import { asText, isFilled } from "@prismicio/client";
+import { isFilled } from "@prismicio/client";
 import { PrismicImage, PrismicRichText } from "@prismicio/vue";
 
 defineProps(getSliceComponentProps<Content.VisionStatementSlice>());
@@ -13,7 +13,7 @@ defineProps(getSliceComponentProps<Content.VisionStatementSlice>());
     class="text-and-image"
   >
     <div>
-      <h2>{{ asText(slice.primary.title) }}</h2>
+      <h2>{{ toText(slice.primary.title) }}</h2>
       <PrismicRichText :field="slice.primary.description" />
     </div>
     <div v-if="isFilled.image(slice.primary.backgroundImage)">

@@ -20,10 +20,9 @@
           }
         },
         "quote": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Quote",
-            "single": "paragraph",
             "placeholder": "Enter the testimonial quote"
           }
         },

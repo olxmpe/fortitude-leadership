@@ -13,18 +13,16 @@
       "imageUrl": "",
       "primary": {
         "title": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Title",
-            "single": "heading1",
             "placeholder": "Section title"
           }
         },
         "subtitle": {
-          "type": "StructuredText",
+          "type": "Text",
           "config": {
             "label": "Subtitle",
-            "single": "paragraph",
             "placeholder": "Optional subtitle or tagline"
           }
         },
