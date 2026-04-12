@@ -23,9 +23,6 @@ export const components = defineSliceZoneComponents({
     () => import("./TeamMemberProfiles/index.vue"),
   ),
   testimonial: defineAsyncComponent(() => import("./QuoteAndButton/index.vue")),
-  text_with_image: defineAsyncComponent(
-    () => import("./HighlightedTextAndmage/index.vue"),
-  ),
   vision_statement: defineAsyncComponent(
     () => import("./TextAndImage/index.vue"),
   ),

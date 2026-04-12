@@ -14,9 +14,6 @@
             "leadership_guidance": {
               "type": "SharedSlice"
             },
-            "text_with_image": {
-              "type": "SharedSlice"
-            },
             "team_member_profiles": {
               "type": "SharedSlice"
             },

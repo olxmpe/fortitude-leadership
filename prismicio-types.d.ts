@@ -71,7 +71,6 @@ type ContentRelationshipFieldWithData<
 
 type AboutDocumentDataSlicesSlice =
   | LeadershipGuidanceSlice
-  | TextWithImageSlice
   | TeamMemberProfilesSlice
   | SectionHeaderSlice;
 
@@ -875,10 +874,10 @@ export interface CaseStudySliceDefaultPrimary {
   /**
    * Title field in *CaseStudy → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: case_study.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
 
@@ -888,7 +887,7 @@ export interface CaseStudySliceDefaultPrimary {
    * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: case_study.default.primary.subtitle
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   subtitle: prismic.KeyTextField;
 
@@ -933,10 +932,10 @@ export interface CaseStudySliceCaseStudyImageLeftPrimary {
   /**
    * Title field in *CaseStudy → CaseStudyImageLeft → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: case_study.caseStudyImageLeft.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
 
@@ -946,7 +945,7 @@ export interface CaseStudySliceCaseStudyImageLeftPrimary {
    * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: case_study.caseStudyImageLeft.primary.subtitle
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   subtitle: prismic.KeyTextField;
 
@@ -1010,10 +1009,10 @@ export interface HeroSliceDefaultPrimary {
   /**
    * Title field in *Hero → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: Enter hero title
    * - **API ID Path**: hero.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
 
@@ -1023,7 +1022,7 @@ export interface HeroSliceDefaultPrimary {
    * - **Field Type**: Text
    * - **Placeholder**: Enter hero subtitle
    * - **API ID Path**: hero.default.primary.subtitle
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   subtitle: prismic.KeyTextField;
 
@@ -1040,10 +1039,10 @@ export interface HeroSliceDefaultPrimary {
   /**
    * Additional text field in *Hero → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: Enter footer descriptive text
    * - **API ID Path**: hero.default.primary.footerText
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   footerText: prismic.KeyTextField;
 
@@ -1187,10 +1186,10 @@ export interface LeadershipGuidanceSliceDefaultPrimary {
   /**
    * Main Heading field in *Service → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: leadership_guidance.default.primary.mainHeading
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   mainHeading: prismic.KeyTextField;
 
@@ -1272,10 +1271,10 @@ export interface MissionValuesSliceDefaultPrimary {
   /**
    * First Value Description field in *MissionsAndCta → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: mission_values.default.primary.value_one_description
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   value_one_description: prismic.KeyTextField;
 
@@ -1292,10 +1291,10 @@ export interface MissionValuesSliceDefaultPrimary {
   /**
    * Second Value Description field in *MissionsAndCta → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: mission_values.default.primary.value_two_description
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   value_two_description: prismic.KeyTextField;
 
@@ -1312,10 +1311,10 @@ export interface MissionValuesSliceDefaultPrimary {
   /**
    * Third Value Description field in *MissionsAndCta → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: mission_values.default.primary.value_three_description
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   value_three_description: prismic.KeyTextField;
 
@@ -1332,10 +1331,10 @@ export interface MissionValuesSliceDefaultPrimary {
   /**
    * Tagline Heading field in *MissionsAndCta → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: mission_values.default.primary.tagline_heading
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   tagline_heading: prismic.KeyTextField;
 
@@ -1403,10 +1402,10 @@ export interface SectionHeaderSliceDefaultPrimary {
   /**
    * Heading field in *Header → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: section_header.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   heading: prismic.KeyTextField;
 
@@ -1458,10 +1457,10 @@ export interface TalentDevelopmentSliceDefaultPrimary {
   /**
    * Title field in *ArticleBlock → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: Section title
    * - **API ID Path**: talent_development.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
 
@@ -1471,7 +1470,7 @@ export interface TalentDevelopmentSliceDefaultPrimary {
    * - **Field Type**: Text
    * - **Placeholder**: Optional subtitle or tagline
    * - **API ID Path**: talent_development.default.primary.subtitle
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   subtitle: prismic.KeyTextField;
 
@@ -1615,10 +1614,10 @@ export interface TestimonialSliceDefaultPrimary {
   /**
    * Quote field in *QuoteAndButton → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: Enter the testimonial quote
    * - **API ID Path**: testimonial.default.primary.quote
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   quote: prismic.KeyTextField;
 
@@ -1664,87 +1663,16 @@ export type TestimonialSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *HighlightedTextAndmage → Default → Primary*
- */
-export interface TextWithImageSliceDefaultPrimary {
-  /**
-   * Heading field in *HighlightedTextAndmage → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.default.primary.heading
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
-   */
-  heading: prismic.KeyTextField;
-
-  /**
-   * Description field in *HighlightedTextAndmage → Default → Primary*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.default.primary.description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
-   */
-  description: prismic.RichTextField;
-
-  /**
-   * Button Link field in *HighlightedTextAndmage → Default → Primary*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: text_with_image.default.primary.button_link
-   * - **Documentation**: https://prismic.io/docs/fields/link
-   */
-  button_link: prismic.LinkField<
-    string,
-    string,
-    unknown,
-    prismic.FieldState,
-    never
-  >;
-}
-
-/**
- * Default variation for HighlightedTextAndmage Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default variation
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type TextWithImageSliceDefault = prismic.SharedSliceVariation<
-  "default",
-  Simplify<TextWithImageSliceDefaultPrimary>,
-  never
->;
-
-/**
- * Slice variation for *HighlightedTextAndmage*
- */
-type TextWithImageSliceVariation = TextWithImageSliceDefault;
-
-/**
- * HighlightedTextAndmage Shared Slice
- *
- * - **API ID**: `text_with_image`
- * - **Description**: A slice with a left-aligned image, heading, description paragraphs, and CTA button
- * - **Documentation**: https://prismic.io/docs/slices
- */
-export type TextWithImageSlice = prismic.SharedSlice<
-  "text_with_image",
-  TextWithImageSliceVariation
->;
-
-/**
  * Primary content in *TextAndImage → Default → Primary*
  */
 export interface VisionStatementSliceDefaultPrimary {
   /**
    * Title field in *TextAndImage → Default → Primary*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
    * - **API ID Path**: vision_statement.default.primary.title
-   * - **Documentation**: https://prismic.io/docs/fields/key-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
   title: prismic.KeyTextField;
 
@@ -1894,10 +1822,6 @@ declare module "@prismicio/client" {
       TestimonialSliceDefaultPrimary,
       TestimonialSliceVariation,
       TestimonialSliceDefault,
-      TextWithImageSlice,
-      TextWithImageSliceDefaultPrimary,
-      TextWithImageSliceVariation,
-      TextWithImageSliceDefault,
       VisionStatementSlice,
       VisionStatementSliceDefaultPrimary,
       VisionStatementSliceVariation,
