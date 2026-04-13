@@ -21,7 +21,7 @@ const { slice } = defineProps(getSliceComponentProps<Content.HeroSlice>());
       />
       <PrismicImage
         :field="slice.primary.backgroundImage"
-        :widths="[800, 1200]"
+        :widths="[1200, 1920, 2560]"
         sizes="100vw"
         class="hero__background__image hero__background__image--desktop"
       />
