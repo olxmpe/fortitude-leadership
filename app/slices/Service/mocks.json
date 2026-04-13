@@ -29,6 +29,15 @@
 						}
 					}
 				]
+			},
+			"cta": {
+				"key": "611ff81e-b3e4-4847-adf2-6b7103fe5b04",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://prismic.io",
+					"text": "mysterious"
+				}
 			}
 		},
 		"items": []

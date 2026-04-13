@@ -31,6 +31,17 @@
             "label": "Description",
             "multi": "paragraph,strong,em,hyperlink"
           }
+        },
+        "cta": {
+          "type": "Link",
+          "config": {
+            "label": "cta",
+            "placeholder": "",
+            "select": null,
+            "allowTargetBlank": true,
+            "allowText": true,
+            "repeat": false
+          }
         }
       },
       "items": {}

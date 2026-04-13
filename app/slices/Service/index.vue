@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import type { Content } from "@prismicio/client";
-import { PrismicRichText } from "@prismicio/vue";
+import { isFilled } from "@prismicio/client";
+import { PrismicRichText, PrismicLink } from "@prismicio/vue";
 
 const { slice } = defineProps(
   getSliceComponentProps<Content.LeadershipGuidanceSlice>(),
@@ -22,6 +23,13 @@ const { slice } = defineProps(
         :field="slice.primary.description"
         class="service__content__description"
       />
+      <PrismicLink
+        v-if="isFilled.link(slice.primary.cta)"
+        :field="slice.primary.cta"
+        class="service__content__cta"
+      >
+        {{ slice.primary.cta.text }}
+      </PrismicLink>
     </div>
   </section>
 </template>
@@ -56,6 +64,21 @@ const { slice } = defineProps(
         &:last-child {
           margin-bottom: 0;
         }
+      }
+    }
+
+    &__cta {
+      align-self: flex-start;
+      margin-top: 0.5rem;
+      padding: 0.7rem 2rem;
+      background-color: $color-navy;
+      color: $color-white;
+      text-decoration: none;
+      font-size: $font-size-xs;
+      transition: background-color 0.25s ease;
+
+      &:hover {
+        background-color: $color-navy-dark;
       }
     }
   }
