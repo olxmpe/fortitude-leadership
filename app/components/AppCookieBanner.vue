@@ -1,11 +1,13 @@
 <script setup lang="ts">
 const { hasDecided, accept, refuse } = useCookieConsent();
+const prismicPreview = useCookie("io.prismic.preview");
+const isVisible = computed(() => !hasDecided.value && !prismicPreview.value);
 </script>
 
 <template>
   <Transition name="cookie-banner">
     <div
-      v-if="!hasDecided"
+      v-if="isVisible"
       class="cookie-banner"
       role="dialog"
       aria-label="Gestion des cookies"
