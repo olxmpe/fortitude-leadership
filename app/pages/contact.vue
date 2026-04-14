@@ -6,6 +6,17 @@ const { data: page } = await useAsyncData("contact", () =>
   client.getSingle("contact"),
 );
 
+const { public: { recaptchaSiteKey } } = useRuntimeConfig();
+const { isAccepted } = useCookieConsent();
+
+watch(isAccepted, (accepted) => {
+  if (accepted && recaptchaSiteKey) {
+    useHead({
+      script: [{ src: `https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`, defer: true }],
+    });
+  }
+}, { immediate: true });
+
 useSeo({
   title: page.value?.data.meta_title,
   description: page.value?.data.meta_description,
@@ -19,6 +30,7 @@ const form = reactive({
   email: "",
   phone: "",
   message: "",
+  website: "", // honeypot — must stay empty
 });
 
 const errors = reactive({
@@ -38,13 +50,27 @@ function validate() {
   return !Object.values(errors).some(Boolean);
 }
 
+async function getRecaptchaToken(): Promise<string> {
+  if (!recaptchaSiteKey) return "";
+  return new Promise((resolve) => {
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const gr = (window as any).grecaptcha;
+    if (!gr) return resolve("");
+    gr.ready(async () => {
+      const token: string = await gr.execute(recaptchaSiteKey, { action: "contact" });
+      resolve(token);
+    });
+  });
+}
+
 async function submit() {
   if (!validate()) return;
   status.value = "loading";
   try {
+    const recaptchaToken = await getRecaptchaToken();
     await $fetch("/api/contact", {
       method: "POST",
-      body: { ...form },
+      body: { ...form, recaptchaToken },
     });
     status.value = "success";
   } catch {
@@ -85,6 +111,16 @@ async function submit() {
         class="contact__form"
         @submit.prevent="submit"
       >
+        <input
+          v-model="form.website"
+          class="contact__honeypot"
+          type="text"
+          name="website"
+          autocomplete="off"
+          tabindex="-1"
+          aria-hidden="true"
+        />
+
         <div class="contact__row">
           <div
             class="contact__field"
@@ -263,6 +299,15 @@ async function submit() {
     &:focus {
       border-color: $color-navy;
     }
+  }
+
+  &__honeypot {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
   }
 
   &__submit-row {

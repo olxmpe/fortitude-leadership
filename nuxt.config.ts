@@ -4,6 +4,13 @@ import { repositoryName } from "./slicemachine.config.json";
 export default defineNuxtConfig({
   devtools: { enabled: true },
 
+  runtimeConfig: {
+    recaptchaSecretKey: process.env.RECAPTCHA_SECRET_KEY,
+    public: {
+      recaptchaSiteKey: process.env.NUXT_PUBLIC_RECAPTCHA_SITE_KEY ?? "",
+    },
+  },
+
   app: {
     head: {
       title: "Fortitude Leadership",

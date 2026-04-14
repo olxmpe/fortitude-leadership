@@ -1,12 +1,38 @@
 import { Resend } from "resend";
 
+async function verifyRecaptcha(token: string, secretKey: string): Promise<boolean> {
+  if (!token || !secretKey) return true; // skip verification if not configured
+
+  const response = await $fetch<{ success: boolean; score: number }>(
+    "https://www.google.com/recaptcha/api/siteverify",
+    {
+      method: "POST",
+      body: new URLSearchParams({ secret: secretKey, response: token }).toString(),
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+    },
+  );
+
+  return response.success && response.score >= 0.5;
+}
+
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const { lastName, firstName, email, phone, message } = body;
+  const { lastName, firstName, email, phone, message, website, recaptchaToken } = body;
   const contactEmail = process.env.CONTACT_EMAIL;
+  const config = useRuntimeConfig(event);
+
+  // Honeypot: bots fill hidden fields, humans don't
+  if (website) {
+    return { success: true };
+  }
 
   if (!lastName || !firstName || !email || !message) {
     throw createError({ statusCode: 400, message: "Champs requis manquants." });
+  }
+
+  const isHuman = await verifyRecaptcha(recaptchaToken ?? "", config.recaptchaSecretKey ?? "");
+  if (!isHuman) {
+    throw createError({ statusCode: 400, message: "Vérification anti-spam échouée." });
   }
 
   if (!contactEmail) {

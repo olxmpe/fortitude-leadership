@@ -3,6 +3,7 @@ import type { LinkField } from "@prismicio/client";
 import { PrismicLink } from "@prismicio/vue";
 
 const { data: footer } = await useFooter();
+const { reset } = useCookieConsent();
 
 type LinkWithText = LinkField & { text?: string };
 </script>
@@ -38,6 +39,11 @@ type LinkWithText = LinkField & { text?: string };
           <PrismicLink :field="link" class="footer__legal-link">
             {{ link.text }}
           </PrismicLink>
+        </li>
+        <li>
+          <button class="footer__legal-link footer__cookies-btn" @click="reset">
+            Gérer les cookies
+          </button>
         </li>
       </ul>
     </div>
@@ -136,6 +142,14 @@ type LinkWithText = LinkField & { text?: string };
         display: none;
       }
     }
+  }
+
+  &__cookies-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    font-family: $font-sans;
   }
 
   &__legal-link {
