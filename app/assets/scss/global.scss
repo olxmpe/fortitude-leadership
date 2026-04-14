@@ -111,6 +111,10 @@ img {
   color: $color-gray;
 }
 
+.grecaptcha-badge {
+  visibility: hidden;
+}
+
 .btn {
   display: inline-flex;
   align-items: center;

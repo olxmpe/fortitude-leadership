@@ -191,6 +191,14 @@ async function submit() {
           Une erreur est survenue, veuillez réessayer.
         </p>
 
+        <p class="contact__recaptcha-notice">
+          Ce site est protégé par reCAPTCHA — la
+          <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">politique de confidentialité</a>
+          et les
+          <a href="https://policies.google.com/terms" target="_blank" rel="noopener">conditions d'utilisation</a>
+          de Google s'appliquent.
+        </p>
+
         <div class="contact__submit-row">
           <button
             class="contact__submit btn"
@@ -322,6 +330,16 @@ async function submit() {
     &:disabled {
       opacity: 0.6;
       cursor: default;
+    }
+  }
+
+  &__recaptcha-notice {
+    font-size: 0.7rem;
+    color: $color-gray;
+    line-height: 1.5;
+
+    a {
+      color: $color-gray;
     }
   }
 
