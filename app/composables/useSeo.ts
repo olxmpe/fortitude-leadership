@@ -23,7 +23,11 @@ export const useSeo = ({
   const route = useRoute();
   const canonical = `${siteUrl}${route.path}`;
 
-  const resolvedTitle = title || fallbackTitle;
+  const siteName = "Fortitude Leadership";
+  const baseTitle = title || fallbackTitle;
+  const resolvedTitle = baseTitle.includes(siteName)
+    ? baseTitle
+    : `${siteName} | ${baseTitle}`;
 
   useSeoMeta({
     title: resolvedTitle,
@@ -39,8 +43,10 @@ export const useSeo = ({
     twitterDescription: description || undefined,
     twitterImage: image?.url ?? undefined,
     robots: noindex ? "noindex, follow" : undefined,
-    articlePublishedTime: type === "article" ? (publishedTime ?? undefined) : undefined,
-    articleModifiedTime: type === "article" ? (modifiedTime ?? undefined) : undefined,
+    articlePublishedTime:
+      type === "article" ? (publishedTime ?? undefined) : undefined,
+    articleModifiedTime:
+      type === "article" ? (modifiedTime ?? undefined) : undefined,
   });
 
   useHead({
