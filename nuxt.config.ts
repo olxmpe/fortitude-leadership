@@ -29,6 +29,8 @@ export default defineNuxtConfig({
         { rel: "icon", type: "image/x-icon", href: "/favicon.png" },
         { rel: "preconnect", href: "https://images.prismic.io" },
         { rel: "preconnect", href: "https://static.cdn.prismic.io" },
+        { rel: "dns-prefetch", href: "https://images.prismic.io" },
+        { rel: "dns-prefetch", href: "https://www.google.com" },
       ],
     },
   },

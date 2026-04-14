@@ -138,11 +138,11 @@ type BlogArticleDocumentDataSlicesSlice =
   | ImageComparisonSlice;
 
 /**
- * Content for Blog documents
+ * Content for Blog article documents
  */
 interface BlogArticleDocumentData {
   /**
-   * Titre field in *Blog*
+   * Titre field in *Blog article*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -153,7 +153,7 @@ interface BlogArticleDocumentData {
   title: prismic.KeyTextField;
 
   /**
-   * Image mise en avant field in *Blog*
+   * Image mise en avant field in *Blog article*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
@@ -164,7 +164,7 @@ interface BlogArticleDocumentData {
   image: prismic.ImageField<never>;
 
   /**
-   * Category field in *Blog*
+   * Category field in *Blog article*
    *
    * - **Field Type**: Content Relationship
    * - **Placeholder**: *None*
@@ -177,7 +177,7 @@ interface BlogArticleDocumentData {
   >;
 
   /**
-   * Slice Zone field in *Blog*
+   * Slice Zone field in *Blog article*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
@@ -185,11 +185,42 @@ interface BlogArticleDocumentData {
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/slices
    */
-  slices: prismic.SliceZone<BlogArticleDocumentDataSlicesSlice>;
+  slices: prismic.SliceZone<BlogArticleDocumentDataSlicesSlice>; /**
+   * Meta title field in *Blog article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_article.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_title: prismic.KeyTextField;
+
+  /**
+   * Meta description field in *Blog article*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_article.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta image field in *Blog article*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: blog_article.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
 }
 
 /**
- * Blog document from Prismic
+ * Blog article document from Prismic
  *
  * - **API ID**: `blog_article`
  * - **Repeatable**: `true`

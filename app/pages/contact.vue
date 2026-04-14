@@ -9,19 +9,56 @@ const { data: page } = await useAsyncData("contact", () =>
 const { public: { recaptchaSiteKey } } = useRuntimeConfig();
 const { isAccepted } = useCookieConsent();
 
-watch(isAccepted, (accepted) => {
-  if (accepted && recaptchaSiteKey) {
-    useHead({
-      script: [{ src: `https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`, defer: true }],
-    });
-  }
-}, { immediate: true });
+useHead(computed(() => ({
+  script: isAccepted.value && recaptchaSiteKey
+    ? [{ src: `https://www.google.com/recaptcha/api.js?render=${recaptchaSiteKey}`, defer: true }]
+    : [],
+})));
+
+const siteUrl = "https://www.fortitude-leadership.com";
 
 useSeo({
   title: page.value?.data.meta_title,
   description: page.value?.data.meta_description,
   image: page.value?.data.meta_image,
   fallbackTitle: "Contact — Fortitude Leadership",
+});
+
+useHead({
+  script: [
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Accueil", item: siteUrl },
+          { "@type": "ListItem", position: 2, name: "Contact", item: `${siteUrl}/contact` },
+        ],
+      }),
+    },
+    {
+      type: "application/ld+json",
+      innerHTML: JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "@id": `${siteUrl}/#business`,
+        name: "Fortitude Leadership",
+        url: siteUrl,
+        email: page.value?.data.contact_email ?? undefined,
+        telephone: page.value?.data.contact_phone_number ?? undefined,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "122 Chemin de Ferre",
+          addressLocality: "Grillon",
+          postalCode: "84600",
+          addressCountry: "FR",
+        },
+        areaServed: "FR",
+        inLanguage: "fr",
+      }),
+    },
+  ],
 });
 
 const form = reactive({

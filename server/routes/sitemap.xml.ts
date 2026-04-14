@@ -6,12 +6,13 @@ const siteUrl = "https://www.fortitude-leadership.com";
 export default defineEventHandler(async (event) => {
   const client = prismic.createClient(repositoryName);
 
-  const [articles, categories, legalPages] = await Promise.all([
+  const [articles, categories, legalPages, events] = await Promise.all([
     client.getAllByType("blog_article", {
       orderings: [{ field: "document.last_publication_date", direction: "desc" }],
     }),
     client.getAllByType("blog_category"),
     client.getAllByType("legal"),
+    client.getAllByType("event").catch(() => []),
   ]);
 
   type UrlEntry = { loc: string; priority: string; changefreq: string; lastmod?: string };
@@ -38,7 +39,14 @@ export default defineEventHandler(async (event) => {
     lastmod: p.last_publication_date.split("T")[0],
   }));
 
-  const allUrls = [...staticUrls, ...articleUrls, ...legalUrls];
+  const eventUrls: UrlEntry[] = events.map((e) => ({
+    loc: `${siteUrl}/event/${e.uid}`,
+    priority: "0.6",
+    changefreq: "weekly",
+    lastmod: e.last_publication_date.split("T")[0],
+  }));
+
+  const allUrls = [...staticUrls, ...articleUrls, ...eventUrls, ...legalUrls];
 
   const items = allUrls
     .map(
