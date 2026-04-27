@@ -3,7 +3,11 @@ import type { Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import { PrismicImage, PrismicLink } from "@prismicio/vue";
 
-defineProps(getSliceComponentProps<Content.EventHeroSlice>());
+const { slice } = defineProps(getSliceComponentProps<Content.EventHeroSlice>());
+
+const { resolveCtaHref } = useEventContactUrl();
+
+const primaryCtaHref = computed(() => resolveCtaHref(slice.primary.primary_cta));
 </script>
 
 <template>
@@ -35,13 +39,13 @@ defineProps(getSliceComponentProps<Content.EventHeroSlice>());
         >
           {{ slice.primary.flyer.text || "Télécharger la plaquette" }}
         </PrismicLink>
-        <PrismicLink
-          v-if="slice.primary.primary_cta && isFilled.link(slice.primary.primary_cta)"
-          :field="slice.primary.primary_cta"
+        <a
+          v-if="primaryCtaHref"
+          :href="primaryCtaHref"
           class="event-hero__cta event-hero__cta--primary"
         >
           {{ slice.primary.primary_cta.text || "Déposez votre candidature" }}
-        </PrismicLink>
+        </a>
       </div>
     </div>
 

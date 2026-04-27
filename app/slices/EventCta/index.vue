@@ -3,7 +3,11 @@ import type { Content } from "@prismicio/client";
 import { isFilled } from "@prismicio/client";
 import { PrismicLink, PrismicRichText } from "@prismicio/vue";
 
-defineProps(getSliceComponentProps<Content.CallToActionCenteredSlice>());
+const { slice } = defineProps(getSliceComponentProps<Content.CallToActionCenteredSlice>());
+
+const { resolveCtaHref } = useEventContactUrl();
+
+const primaryCtaHref = computed(() => resolveCtaHref(slice.primary.primary_button));
 </script>
 
 <template>
@@ -23,13 +27,13 @@ defineProps(getSliceComponentProps<Content.CallToActionCenteredSlice>());
         >
           {{ slice.primary.flyer.text || "Télécharger la plaquette" }}
         </PrismicLink>
-        <PrismicLink
-          v-if="isFilled.link(slice.primary.primary_button)"
-          :field="slice.primary.primary_button"
+        <a
+          v-if="primaryCtaHref"
+          :href="primaryCtaHref"
           class="event-cta__btn event-cta__btn--primary"
         >
           {{ slice.primary.primary_button.text || "Déposer votre candidature" }}
-        </PrismicLink>
+        </a>
       </div>
     </div>
   </section>

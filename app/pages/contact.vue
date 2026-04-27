@@ -61,14 +61,22 @@ useHead({
   ],
 });
 
+const route = useRoute();
+
 const form = reactive({
   lastName: "",
   firstName: "",
   email: "",
   phone: "",
+  subject: "",
   message: "",
   website: "", // honeypot — must stay empty
 });
+
+const eventParam = route.query.event;
+if (eventParam && typeof eventParam === "string") {
+  form.subject = `Candidature - ${eventParam}`;
+}
 
 const errors = reactive({
   lastName: false,
@@ -211,6 +219,15 @@ async function submit() {
             class="contact__input"
             type="tel"
             autocomplete="tel"
+          />
+        </div>
+
+        <div class="contact__field">
+          <label class="contact__label">Objet</label>
+          <input
+            v-model="form.subject"
+            class="contact__input"
+            type="text"
           />
         </div>
 

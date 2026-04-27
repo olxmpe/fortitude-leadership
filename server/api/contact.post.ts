@@ -17,7 +17,7 @@ async function verifyRecaptcha(token: string, secretKey: string): Promise<boolea
 
 export default defineEventHandler(async (event) => {
   const body = await readBody(event);
-  const { lastName, firstName, email, phone, message, website, recaptchaToken } = body;
+  const { lastName, firstName, email, phone, subject, message, website, recaptchaToken } = body;
   const contactEmail = process.env.CONTACT_EMAIL;
   const config = useRuntimeConfig(event);
 
@@ -55,6 +55,7 @@ export default defineEventHandler(async (event) => {
       `Prénom : ${firstName}`,
       `Email : ${email}`,
       phone ? `Téléphone : ${phone}` : null,
+      subject ? `Objet : ${subject}` : null,
       ``,
       `Message :`,
       message,
