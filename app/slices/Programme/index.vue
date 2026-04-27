@@ -19,10 +19,8 @@ defineProps(getSliceComponentProps<Content.NumberedListWithNotesSlice>());
         :key="index"
         class="programme__item"
       >
-        <div class="programme__item-left">
-          <span class="programme__item-number">{{ String(index + 1).padStart(2, "0") }}</span>
-          <span class="programme__item-title">{{ step.title }}</span>
-        </div>
+        <span class="programme__number">{{ String(index + 1).padStart(2, "0") }}</span>
+        <p class="programme__item-title">{{ step.title }}</p>
         <p class="programme__item-description">{{ step.description }}</p>
       </div>
     </div>
@@ -31,64 +29,71 @@ defineProps(getSliceComponentProps<Content.NumberedListWithNotesSlice>());
 
 <style scoped lang="scss">
 .programme {
+  background-color: $color-gray-light;
   padding: $spacing-lg $boxed;
 
   &__title {
+    text-align: center;
     margin-bottom: $spacing-md;
+    max-width: 480px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   &__list {
     display: flex;
     flex-direction: column;
+    max-width: 900px;
+    margin: 0 auto;
   }
 
   &__item {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: $spacing-md;
+    grid-template-columns: 5rem 3fr 2fr;
+    column-gap: $spacing-sm;
     padding: $spacing-xs 0;
     border-top: 1px solid $color-navy-light;
+    align-items: baseline;
 
-    &:last-child {
-      border-bottom: 1px solid $color-navy-light;
+    &:first-child {
+      border-top: none;
     }
 
     @media (max-width: $bp-mobile) {
-      grid-template-columns: 1fr;
-      gap: $spacing-xs;
+      grid-template-columns: 3rem 1fr;
+      column-gap: 1rem;
+      row-gap: 0.75rem;
     }
   }
 
-  &__item-left {
-    display: flex;
-    align-items: flex-start;
-    gap: $spacing-xs;
-  }
-
-  &__item-number {
+  &__number {
     font-family: $font-serif-garamond;
     font-size: $font-size-lg;
-    font-weight: 300;
+    font-style: italic;
     color: $color-navy-light;
     line-height: 1;
-    flex-shrink: 0;
   }
 
   &__item-title {
     font-family: $font-sans;
     font-size: $font-size-sm;
-    font-weight: 600;
+    font-weight: 400;
     color: $color-navy;
-    padding-top: 0.25rem;
-    line-height: 1.4;
+    line-height: 1.5;
+    margin: 0;
   }
 
   &__item-description {
-    font-size: $font-size-xs;
+    font-family: $font-serif-garamond;
+    font-style: italic;
+    font-size: $font-size-sm;
     color: $color-gray;
-    line-height: 1.6;
+    line-height: 1.5;
     margin: 0;
-    padding-top: 0.4rem;
+
+    @media (max-width: $bp-mobile) {
+      grid-column: 2;
+    }
   }
 }
 </style>

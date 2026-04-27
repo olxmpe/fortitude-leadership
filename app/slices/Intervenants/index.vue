@@ -40,11 +40,15 @@ defineProps(getSliceComponentProps<Content.TeamProfilesGridSlice>());
 
 <style scoped lang="scss">
 .intervenants {
+  background-color: $color-gray-light;
   padding: $spacing-lg $boxed;
 
   &__header {
     margin-bottom: $spacing-md;
     text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
 
   &__title {
@@ -58,30 +62,39 @@ defineProps(getSliceComponentProps<Content.TeamProfilesGridSlice>());
     font-size: $font-size-sm;
     color: $color-gray;
     margin-top: $spacing-xs;
+    max-width: 480px;
   }
 
   &__grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-    gap: $spacing-xs;
-    max-width: 1400px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: $spacing-sm;
+    max-width: 900px;
     margin: 0 auto;
 
     @media (max-width: $bp-mobile) {
-      grid-template-columns: repeat(2, 1fr);
+      gap: $spacing-xs;
     }
   }
 
   &__card {
+    width: 200px;
+    flex-shrink: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
+
+    @media (max-width: $bp-mobile) {
+      width: 100%;
+      max-width: 320px;
+    }
   }
 
   &__photo-wrap {
     width: 100%;
-    aspect-ratio: 2 / 3;
+    aspect-ratio: 3 / 4;
     overflow: hidden;
     margin-bottom: 0.75rem;
   }

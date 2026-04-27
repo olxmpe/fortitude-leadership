@@ -20,8 +20,11 @@ defineProps(getSliceComponentProps<Content.FeatureGridSlice>());
         :key="index"
         class="feature-grid__card"
       >
-        <h3 class="feature-grid__card-title">{{ item.title }}</h3>
-        <PrismicRichText :field="item.description" class="feature-grid__card-description" />
+        <span class="feature-grid__number">{{ String(index + 1).padStart(2, "0") }}</span>
+        <p class="feature-grid__card-title">{{ item.title }}</p>
+        <div class="feature-grid__card-description">
+          <PrismicRichText :field="item.description" />
+        </div>
       </div>
     </div>
   </section>
@@ -38,33 +41,39 @@ defineProps(getSliceComponentProps<Content.FeatureGridSlice>());
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
     gap: $spacing-xs;
     max-width: 1400px;
     margin: 0 auto;
 
-    @media (max-width: 1024px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
     @media (max-width: $bp-mobile) {
-      grid-template-columns: 1fr;
+      grid-template-columns: repeat(2, 1fr);
     }
   }
 
   &__card {
-    padding: $spacing-xs;
-    background-color: $color-navy-lighter;
     display: flex;
     flex-direction: column;
     gap: 0.75rem;
+    padding: $spacing-xs;
+    border: 1px solid $color-navy-light;
+  }
+
+  &__number {
+    font-family: $font-serif-garamond;
+    font-size: $font-size-sm;
+    font-style: italic;
+    color: $color-navy-light;
+    line-height: 1;
   }
 
   &__card-title {
     font-family: $font-sans;
     font-size: $font-size-sm;
-    font-weight: 600;
+    font-weight: 700;
     color: $color-navy;
+    margin: 0;
+    line-height: 1.3;
   }
 
   &__card-description {
