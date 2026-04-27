@@ -68,31 +68,25 @@ const events = computed(() => {
   padding: $spacing-lg $boxed;
 
   &__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: $spacing-md;
     max-width: 1400px;
     margin: 0 auto;
-    justify-items: center;
-
-    @media (max-width: 1024px) {
-      grid-template-columns: repeat(2, 1fr);
-    }
-
-    @media (max-width: $bp-mobile) {
-      grid-template-columns: 1fr;
-      justify-items: stretch;
-    }
   }
 
   &__card {
+    flex: 0 1 360px;
     position: relative;
     display: flex;
     flex-direction: column;
-    height: 100%;
-    width: 100%;
     overflow: hidden;
     cursor: pointer;
+
+    @media (max-width: $bp-mobile) {
+      flex-basis: 100%;
+    }
 
     &:hover .upcoming-events__link {
       opacity: 0.7;
