@@ -4,16 +4,26 @@ import { defineAsyncComponent } from "vue";
 import { defineSliceZoneComponents } from "@prismicio/vue";
 
 export const components = defineSliceZoneComponents({
+  call_to_action_centered: defineAsyncComponent(
+    () => import("./EventCta/index.vue"),
+  ),
   case_study: defineAsyncComponent(() => import("./CaseStudy/index.vue")),
+  event_hero: defineAsyncComponent(() => import("./EventHero/index.vue")),
+  feature_grid: defineAsyncComponent(() => import("./FeatureGrid/index.vue")),
   hero: defineAsyncComponent(() => import("./Hero/index.vue")),
   image_comparison: defineAsyncComponent(
     () => import("./ImageComparison/index.vue"),
   ),
+  info_grid: defineAsyncComponent(() => import("./InfosPratiques/index.vue")),
   leadership_guidance: defineAsyncComponent(
-    () => import("./Service/index.vue"),
+    () => import("./ParagraphWithTitle/index.vue"),
   ),
+  media_feature: defineAsyncComponent(() => import("./Media/index.vue")),
   mission_values: defineAsyncComponent(
     () => import("./MissionsAndCta/index.vue"),
+  ),
+  numbered_list_with_notes: defineAsyncComponent(
+    () => import("./Programme/index.vue"),
   ),
   section_header: defineAsyncComponent(() => import("./Header/index.vue")),
   talent_development: defineAsyncComponent(
@@ -22,7 +32,13 @@ export const components = defineSliceZoneComponents({
   team_member_profiles: defineAsyncComponent(
     () => import("./TeamMemberProfiles/index.vue"),
   ),
+  team_profiles_grid: defineAsyncComponent(
+    () => import("./Intervenants/index.vue"),
+  ),
   testimonial: defineAsyncComponent(() => import("./QuoteAndButton/index.vue")),
+  upcoming_events: defineAsyncComponent(
+    () => import("./UpcomingEvents/index.vue"),
+  ),
   vision_statement: defineAsyncComponent(
     () => import("./TextAndImage/index.vue"),
   ),

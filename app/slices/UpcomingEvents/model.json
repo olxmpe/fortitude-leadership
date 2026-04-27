@@ -1,0 +1,18 @@
+{
+  "id": "upcoming_events",
+  "type": "SharedSlice",
+  "name": "UpcomingEvents",
+  "description": "Displays the 3 upcoming events automatically fetched from the event collection",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default upcoming events grid",
+      "imageUrl": "",
+      "primary": {},
+      "items": {}
+    }
+  ]
+}

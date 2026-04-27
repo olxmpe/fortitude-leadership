@@ -1,0 +1,48 @@
+{
+  "type": "SharedSlice",
+  "id": "numbered_list_with_notes",
+  "name": "Programme",
+  "variations": [
+    {
+      "id": "title_numbered_items_with_side_notes",
+      "name": "Default",
+      "description": "Displays a headline and description followed by a two-column list: numbered main items on the left, and corresponding side notes or brief explanations on the right.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Titre",
+            "placeholder": ""
+          }
+        },
+        "steps": {
+          "type": "Group",
+          "config": {
+            "label": "Items",
+            "repeat": true,
+            "fields": {
+              "title": {
+                "type": "Text",
+                "config": {
+                  "label": "Titre",
+                  "placeholder": ""
+                }
+              },
+              "description": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

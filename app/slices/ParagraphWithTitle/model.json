@@ -1,7 +1,7 @@
 {
   "id": "leadership_guidance",
   "type": "SharedSlice",
-  "name": "Service",
+  "name": "ParagraphWithTitle",
   "description": "Two-column layout with main heading on the left and descriptive content on the right",
   "variations": [
     {

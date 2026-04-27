@@ -1,0 +1,39 @@
+{
+  "type": "SharedSlice",
+  "id": "media_feature",
+  "name": "Media",
+  "variations": [
+    {
+      "id": "media_left_text",
+      "name": "Media",
+      "description": "Displays a media (video or image) on one side with a heading and supporting text on the other side.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Titre",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "video": {
+          "type": "Embed",
+          "config": {
+            "label": "Video",
+            "placeholder": ""
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

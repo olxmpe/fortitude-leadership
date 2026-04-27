@@ -1,0 +1,47 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "dual_button",
+		"primary": {
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Labore tempor id magna aliquip exercitation amet adipisicing aliquip aliquip aliquip deserunt ad. Culpa cupidatat deserunt consectetur tempor esse veniam mollit officia elit. Ex in velit minim labore ut duis anim laboris."
+						}
+					}
+				]
+			},
+			"primary_button": {
+				"key": "86a23aee-5e21-4cda-bac5-2bf5abba6e8b",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev",
+					"text": "consider"
+				}
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "last",
+				"type": "Text"
+			},
+			"flyer": {
+				"key": "6b26c0e6-f3a6-445c-9f16-55eafc00311b",
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "FileLink",
+					"id": "mock_Media_link",
+					"kind": "file",
+					"name": "mock_name",
+					"url": "https://source.unsplash.com/daily",
+					"size": "0",
+					"text": "increase"
+				}
+			}
+		},
+		"items": []
+	}
+]

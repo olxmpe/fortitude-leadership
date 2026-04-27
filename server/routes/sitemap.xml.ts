@@ -12,7 +12,7 @@ export default defineEventHandler(async (event) => {
     }),
     client.getAllByType("blog_category"),
     client.getAllByType("legal"),
-    client.getAllByType("event").catch(() => []),
+    client.getAllByType("evenements").catch(() => []),
   ]);
 
   type UrlEntry = { loc: string; priority: string; changefreq: string; lastmod?: string };
@@ -22,6 +22,7 @@ export default defineEventHandler(async (event) => {
     { loc: `${siteUrl}/about`, priority: "0.8", changefreq: "monthly" },
     { loc: `${siteUrl}/services`, priority: "0.8", changefreq: "monthly" },
     { loc: `${siteUrl}/blog`, priority: "0.9", changefreq: "weekly" },
+    { loc: `${siteUrl}/evenements`, priority: "0.8", changefreq: "monthly" },
     { loc: `${siteUrl}/contact`, priority: "0.7", changefreq: "monthly" },
   ];
 
@@ -40,7 +41,7 @@ export default defineEventHandler(async (event) => {
   }));
 
   const eventUrls: UrlEntry[] = events.map((e) => ({
-    loc: `${siteUrl}/event/${e.uid}`,
+    loc: `${siteUrl}/evenements/${e.uid}`,
     priority: "0.6",
     changefreq: "weekly",
     lastmod: e.last_publication_date.split("T")[0],

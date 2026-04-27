@@ -1,0 +1,89 @@
+{
+  "type": "SharedSlice",
+  "id": "event_hero",
+  "name": "EventHero",
+  "variations": [
+    {
+      "id": "default_layout",
+      "name": "Event",
+      "description": "Hero with background image, title, description, two call-to-actions and summary of key event info in four columns.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "background_image": {
+          "type": "Image",
+          "config": {
+            "constraint": {
+              "height": 800,
+              "width": 1200
+            },
+            "label": "Image de fond"
+          }
+        },
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Titre",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "primary_cta": {
+          "type": "Link",
+          "config": {
+            "label": "CTA principal",
+            "placeholder": "",
+            "allowText": true,
+            "repeat": false,
+            "select": null
+          }
+        },
+        "flyer": {
+          "type": "Link",
+          "config": {
+            "label": "Plaquette",
+            "placeholder": "",
+            "select": "media",
+            "allowText": true
+          }
+        },
+        "date": {
+          "type": "Text",
+          "config": {
+            "label": "Date",
+            "placeholder": "e.g., 15 - 16 Mai 2026"
+          }
+        },
+        "location": {
+          "type": "Text",
+          "config": {
+            "label": "Lieu",
+            "placeholder": "e.g., Grillon & environs (84)"
+          }
+        },
+        "format": {
+          "type": "Text",
+          "config": {
+            "label": "Format",
+            "placeholder": "e.g., 48h immersives"
+          }
+        },
+        "participants": {
+          "type": "Text",
+          "config": {
+            "label": "Participants",
+            "placeholder": "e.g., 12 participants maximum"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

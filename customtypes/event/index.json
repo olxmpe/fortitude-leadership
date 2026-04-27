@@ -6,21 +6,6 @@
   "status": true,
   "json": {
     "Main": {
-      "name": {
-        "type": "Text",
-        "config": {
-          "label": "Nom de l'événement",
-          "placeholder": ""
-        }
-      },
-      "image_mise_en_avant": {
-        "type": "Image",
-        "config": {
-          "label": "Image mise en avant",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
       "uid": {
         "type": "UID",
         "config": {
@@ -28,50 +13,122 @@
           "placeholder": "d-day-1"
         }
       },
-      "start_date": {
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image mise en avant",
+          "constraint": {
+            "width": 800,
+            "height": 600
+          }
+        }
+      },
+      "title": {
+        "type": "Text",
+        "config": {
+          "label": "Nom de l'événement",
+          "placeholder": "D-Day challenge #01"
+        }
+      },
+      "description": {
+        "type": "Text",
+        "config": {
+          "label": "Description",
+          "placeholder": "Un programme de 48h, immersif et engageant"
+        }
+      },
+      "cta": {
+        "type": "Link",
+        "config": {
+          "label": "CTA",
+          "placeholder": "Déposez votre candidature",
+          "select": null,
+          "allowTargetBlank": true,
+          "allowText": true,
+          "repeat": false
+        }
+      },
+      "flyer": {
+        "type": "Link",
+        "config": {
+          "label": "Plaquette",
+          "placeholder": "",
+          "select": "media",
+          "allowText": true
+        }
+      },
+      "start": {
         "type": "Date",
         "config": {
           "label": "Date de début",
           "placeholder": ""
         }
       },
-      "end_date": {
+      "end": {
         "type": "Date",
         "config": {
           "label": "Date de fin",
           "placeholder": ""
         }
       },
-      "description": {
-        "type": "StructuredText",
+      "location": {
+        "type": "Text",
         "config": {
-          "label": "Description",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          "label": "Lieu",
+          "placeholder": ""
         }
       },
-      "module": {
-        "type": "Group",
+      "format": {
+        "type": "Text",
         "config": {
-          "label": "Modules",
-          "repeat": true,
-          "fields": {
-            "title": {
-              "type": "Text",
-              "config": {
-                "label": "Title",
-                "placeholder": ""
-              }
+          "label": "format",
+          "placeholder": ""
+        }
+      },
+      "attendees_count": {
+        "type": "Text",
+        "config": {
+          "label": "Nombre de participants",
+          "placeholder": ""
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "image_comparison": {
+              "type": "SharedSlice"
             },
-            "description": {
-              "type": "StructuredText",
-              "config": {
-                "label": "Description",
-                "placeholder": "",
-                "allowTargetBlank": true,
-                "multi": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
-              }
+            "case_study": {
+              "type": "SharedSlice"
+            },
+            "vision_statement": {
+              "type": "SharedSlice"
+            },
+            "testimonial": {
+              "type": "SharedSlice"
+            },
+            "team_profiles_grid": {
+              "type": "SharedSlice"
+            },
+            "leadership_guidance": {
+              "type": "SharedSlice"
+            },
+            "numbered_list_with_notes": {
+              "type": "SharedSlice"
+            },
+            "call_to_action_centered": {
+              "type": "SharedSlice"
+            },
+            "info_grid": {
+              "type": "SharedSlice"
+            },
+            "media_feature": {
+              "type": "SharedSlice"
+            },
+            "feature_grid": {
+              "type": "SharedSlice"
             }
           }
         }

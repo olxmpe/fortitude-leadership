@@ -1,0 +1,62 @@
+{
+  "type": "SharedSlice",
+  "id": "team_profiles_grid",
+  "name": "Intervenants",
+  "variations": [
+    {
+      "id": "default_grid",
+      "name": "Default",
+      "description": "Profiles are displayed in a grid below a heading and description, each with image, name, and role/title.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "titre": {
+          "type": "Text",
+          "config": {
+            "label": "Titre",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "profiles": {
+          "type": "Group",
+          "config": {
+            "label": "Profiles",
+            "fields": {
+              "photo": {
+                "type": "Image",
+                "config": {
+                  "constraint": {
+                    "height": 1200,
+                    "width": 800
+                  },
+                  "label": "Photo"
+                }
+              },
+              "name": {
+                "type": "Text",
+                "config": {
+                  "label": "Name"
+                }
+              },
+              "role": {
+                "type": "Text",
+                "config": {
+                  "label": "Role/Title"
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "type": "SharedSlice",
+  "id": "info_grid",
+  "name": "InfosPratiques",
+  "variations": [
+    {
+      "id": "heading_description_grid",
+      "name": "Heading, Description and Info Grid",
+      "description": "Includes a heading, a description, and a flexible grid of labeled information pairs, each with an optional subtext.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "Text",
+          "config": {
+            "label": "Description",
+            "placeholder": ""
+          }
+        },
+        "info_items": {
+          "type": "Group",
+          "config": {
+            "label": "Info Items",
+            "fields": {
+              "label": {
+                "type": "Text",
+                "config": {
+                  "label": "Titre",
+                  "placeholder": ""
+                }
+              },
+              "main_value": {
+                "type": "Text",
+                "config": {
+                  "label": "Valeur",
+                  "placeholder": ""
+                }
+              },
+              "subtext": {
+                "type": "Text",
+                "config": {
+                  "label": "Description",
+                  "placeholder": ""
+                }
+              }
+            }
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

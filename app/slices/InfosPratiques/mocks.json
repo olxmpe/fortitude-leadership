@@ -1,0 +1,53 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "heading_description_grid",
+		"primary": {
+			"info_items": {
+				"__TYPE__": "GroupContentType",
+				"value": [
+					{
+						"__TYPE__": "GroupItemContent",
+						"value": [
+							[
+								"label",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "round",
+									"type": "Text"
+								}
+							],
+							[
+								"main_value",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "army",
+									"type": "Text"
+								}
+							],
+							[
+								"subtext",
+								{
+									"__TYPE__": "FieldContent",
+									"value": "solar",
+									"type": "Text"
+								}
+							]
+						]
+					}
+				]
+			},
+			"title": {
+				"__TYPE__": "FieldContent",
+				"value": "coal",
+				"type": "Text"
+			},
+			"description": {
+				"__TYPE__": "FieldContent",
+				"value": "subject",
+				"type": "Text"
+			}
+		},
+		"items": []
+	}
+]

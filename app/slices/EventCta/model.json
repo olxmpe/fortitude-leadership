@@ -1,0 +1,50 @@
+{
+  "type": "SharedSlice",
+  "id": "call_to_action_centered",
+  "name": "EventCta",
+  "variations": [
+    {
+      "id": "dual_button",
+      "name": "Dual Button",
+      "description": "Displays a main heading, description text, and two horizontally aligned call-to-action buttons.",
+      "version": "initial",
+      "imageUrl": "",
+      "docURL": "...",
+      "primary": {
+        "title": {
+          "type": "Text",
+          "config": {
+            "label": "Title",
+            "placeholder": ""
+          }
+        },
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "multi": "paragraph,strong,em,hyperlink",
+            "label": "Description"
+          }
+        },
+        "primary_button": {
+          "type": "Link",
+          "config": {
+            "label": "Primary Button",
+            "allowText": true,
+            "repeat": false,
+            "select": null
+          }
+        },
+        "flyer": {
+          "type": "Link",
+          "config": {
+            "label": "Plaquette",
+            "placeholder": "",
+            "select": "media",
+            "allowText": true
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

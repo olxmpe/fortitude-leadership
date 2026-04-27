@@ -419,100 +419,213 @@ export type ContactDocument<Lang extends string = string> =
     Lang
   >;
 
+type EvenementsDocumentDataSlicesSlice =
+  | UpcomingEventsSlice
+  | CallToActionCenteredSlice
+  | MediaFeatureSlice
+  | LeadershipGuidanceSlice
+  | EventHeroSlice;
+
 /**
- * Item in *Event → Modules*
+ * Content for Événements documents
  */
-export interface EventDocumentDataModuleItem {
+interface EvenementsDocumentData {
   /**
-   * Title field in *Event → Modules*
+   * Slice Zone field in *Événements*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: evenements.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<EvenementsDocumentDataSlicesSlice>; /**
+   * Meta Title field in *Événements*
    *
    * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.module[].title
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: evenements.meta_title
+   * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  title: prismic.KeyTextField;
+  meta_title: prismic.KeyTextField;
 
   /**
-   * Description field in *Event → Modules*
+   * Meta Description field in *Événements*
    *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.module[].description
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: evenements.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  description: prismic.RichTextField;
+  meta_description: prismic.KeyTextField;
+
+  /**
+   * Meta Image field in *Événements*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: evenements.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  meta_image: prismic.ImageField<never>;
 }
+
+/**
+ * Événements document from Prismic
+ *
+ * - **API ID**: `evenements`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/content-modeling
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EvenementsDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<EvenementsDocumentData>,
+    "evenements",
+    Lang
+  >;
+
+type EventDocumentDataSlicesSlice =
+  | ImageComparisonSlice
+  | CaseStudySlice
+  | VisionStatementSlice
+  | TestimonialSlice
+  | TeamProfilesGridSlice
+  | LeadershipGuidanceSlice
+  | NumberedListWithNotesSlice
+  | CallToActionCenteredSlice
+  | InfoGridSlice
+  | MediaFeatureSlice
+  | FeatureGridSlice;
 
 /**
  * Content for Event documents
  */
 interface EventDocumentData {
   /**
-   * Nom de l'événement field in *Event*
-   *
-   * - **Field Type**: Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.name
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/text
-   */
-  name: prismic.KeyTextField;
-
-  /**
    * Image mise en avant field in *Event*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: event.image_mise_en_avant
+   * - **API ID Path**: event.image
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/image
    */
-  image_mise_en_avant: prismic.ImageField<never>;
+  image: prismic.ImageField<never>;
+
+  /**
+   * Nom de l'événement field in *Event*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: D-Day challenge #01
+   * - **API ID Path**: event.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Event*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: Un programme de 48h, immersif et engageant
+   * - **API ID Path**: event.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * CTA field in *Event*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: Déposez votre candidature
+   * - **API ID Path**: event.cta
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  cta: prismic.LinkField<string, string, unknown, prismic.FieldState, never>;
+
+  /**
+   * Plaquette field in *Event*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.flyer
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  flyer: prismic.LinkToMediaField<prismic.FieldState, never>;
 
   /**
    * Date de début field in *Event*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
-   * - **API ID Path**: event.start_date
+   * - **API ID Path**: event.start
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/date
    */
-  start_date: prismic.DateField;
+  start: prismic.DateField;
 
   /**
    * Date de fin field in *Event*
    *
    * - **Field Type**: Date
    * - **Placeholder**: *None*
-   * - **API ID Path**: event.end_date
+   * - **API ID Path**: event.end
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/fields/date
    */
-  end_date: prismic.DateField;
+  end: prismic.DateField;
 
   /**
-   * Description field in *Event*
+   * Lieu field in *Event*
    *
-   * - **Field Type**: Rich Text
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: event.description
+   * - **API ID Path**: event.location
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  description: prismic.RichTextField;
+  location: prismic.KeyTextField;
 
   /**
-   * Modules field in *Event*
+   * format field in *Event*
    *
-   * - **Field Type**: Group
+   * - **Field Type**: Text
    * - **Placeholder**: *None*
-   * - **API ID Path**: event.module[]
+   * - **API ID Path**: event.format
    * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   * - **Documentation**: https://prismic.io/docs/fields/text
    */
-  module: prismic.GroupField<Simplify<EventDocumentDataModuleItem>>;
+  format: prismic.KeyTextField;
+
+  /**
+   * Nombre de participants field in *Event*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.attendees_count
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  attendees_count: prismic.KeyTextField;
+
+  /**
+   * Slice Zone field in *Event*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/slices
+   */
+  slices: prismic.SliceZone<EventDocumentDataSlicesSlice>;
 }
 
 /**
@@ -891,12 +1004,94 @@ export type AllDocumentTypes =
   | BlogArticlesDocument
   | BlogCategoryDocument
   | ContactDocument
+  | EvenementsDocument
   | EventDocument
   | FooterDocument
   | GlobalNavigationDocument
   | HomeDocument
   | LegalDocument
   | ServicesDocument;
+
+/**
+ * Primary content in *EventCta → Dual Button → Primary*
+ */
+export interface CallToActionCenteredSliceDualButtonPrimary {
+  /**
+   * Title field in *EventCta → Dual Button → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action_centered.dual_button.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *EventCta → Dual Button → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action_centered.dual_button.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Primary Button field in *EventCta → Dual Button → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action_centered.dual_button.primary.primary_button
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  primary_button: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Plaquette field in *EventCta → Dual Button → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: call_to_action_centered.dual_button.primary.flyer
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  flyer: prismic.LinkToMediaField<prismic.FieldState, never>;
+}
+
+/**
+ * Dual Button variation for EventCta Slice
+ *
+ * - **API ID**: `dual_button`
+ * - **Description**: Displays a main heading, description text, and two horizontally aligned call-to-action buttons.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CallToActionCenteredSliceDualButton = prismic.SharedSliceVariation<
+  "dual_button",
+  Simplify<CallToActionCenteredSliceDualButtonPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *EventCta*
+ */
+type CallToActionCenteredSliceVariation = CallToActionCenteredSliceDualButton;
+
+/**
+ * EventCta Shared Slice
+ *
+ * - **API ID**: `call_to_action_centered`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type CallToActionCenteredSlice = prismic.SharedSlice<
+  "call_to_action_centered",
+  CallToActionCenteredSliceVariation
+>;
 
 /**
  * Primary content in *CaseStudy → Default → Primary*
@@ -1031,6 +1226,217 @@ type CaseStudySliceVariation =
 export type CaseStudySlice = prismic.SharedSlice<
   "case_study",
   CaseStudySliceVariation
+>;
+
+/**
+ * Primary content in *EventHero → Event → Primary*
+ */
+export interface EventHeroSliceDefaultLayoutPrimary {
+  /**
+   * Image de fond field in *EventHero → Event → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_hero.default_layout.primary.background_image
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  background_image: prismic.ImageField<never>;
+
+  /**
+   * Titre field in *EventHero → Event → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_hero.default_layout.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *EventHero → Event → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_hero.default_layout.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * CTA principal field in *EventHero → Event → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_hero.default_layout.primary.primary_cta
+   * - **Documentation**: https://prismic.io/docs/fields/link
+   */
+  primary_cta: prismic.LinkField<
+    string,
+    string,
+    unknown,
+    prismic.FieldState,
+    never
+  >;
+
+  /**
+   * Plaquette field in *EventHero → Event → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_hero.default_layout.primary.flyer
+   * - **Documentation**: https://prismic.io/docs/fields/link-to-media
+   */
+  flyer: prismic.LinkToMediaField<prismic.FieldState, never>;
+
+  /**
+   * Date field in *EventHero → Event → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g., 15 - 16 Mai 2026
+   * - **API ID Path**: event_hero.default_layout.primary.date
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  date: prismic.KeyTextField;
+
+  /**
+   * Lieu field in *EventHero → Event → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g., Grillon & environs (84)
+   * - **API ID Path**: event_hero.default_layout.primary.location
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  location: prismic.KeyTextField;
+
+  /**
+   * Format field in *EventHero → Event → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g., 48h immersives
+   * - **API ID Path**: event_hero.default_layout.primary.format
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  format: prismic.KeyTextField;
+
+  /**
+   * Participants field in *EventHero → Event → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: e.g., 12 participants maximum
+   * - **API ID Path**: event_hero.default_layout.primary.participants
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  participants: prismic.KeyTextField;
+}
+
+/**
+ * Event variation for EventHero Slice
+ *
+ * - **API ID**: `default_layout`
+ * - **Description**: Hero with background image, title, description, two call-to-actions and summary of key event info in four columns.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type EventHeroSliceDefaultLayout = prismic.SharedSliceVariation<
+  "default_layout",
+  Simplify<EventHeroSliceDefaultLayoutPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *EventHero*
+ */
+type EventHeroSliceVariation = EventHeroSliceDefaultLayout;
+
+/**
+ * EventHero Shared Slice
+ *
+ * - **API ID**: `event_hero`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type EventHeroSlice = prismic.SharedSlice<
+  "event_hero",
+  EventHeroSliceVariation
+>;
+
+/**
+ * Item in *FeatureGrid → Default → Primary → Items*
+ */
+export interface FeatureGridSliceDefaultPrimaryItemsItem {
+  /**
+   * Titre field in *FeatureGrid → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_grid.default.primary.items[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *FeatureGrid → Default → Primary → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_grid.default.primary.items[].description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+}
+
+/**
+ * Primary content in *FeatureGrid → Default → Primary*
+ */
+export interface FeatureGridSliceDefaultPrimary {
+  /**
+   * Titre field in *FeatureGrid → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_grid.default.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Items field in *FeatureGrid → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: feature_grid.default.primary.items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  items: prismic.GroupField<Simplify<FeatureGridSliceDefaultPrimaryItemsItem>>;
+}
+
+/**
+ * Default variation for FeatureGrid Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Standard feature grid layout with optional heading and repeatable cards.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FeatureGridSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Simplify<FeatureGridSliceDefaultPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *FeatureGrid*
+ */
+type FeatureGridSliceVariation = FeatureGridSliceDefault;
+
+/**
+ * FeatureGrid Shared Slice
+ *
+ * - **API ID**: `feature_grid`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type FeatureGridSlice = prismic.SharedSlice<
+  "feature_grid",
+  FeatureGridSliceVariation
 >;
 
 /**
@@ -1211,11 +1617,113 @@ export type ImageComparisonSlice = prismic.SharedSlice<
 >;
 
 /**
- * Primary content in *Service → Default → Primary*
+ * Item in *InfosPratiques → Heading, Description and Info Grid → Primary → Info Items*
+ */
+export interface InfoGridSliceHeadingDescriptionGridPrimaryInfoItemsItem {
+  /**
+   * Titre field in *InfosPratiques → Heading, Description and Info Grid → Primary → Info Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_grid.heading_description_grid.primary.info_items[].label
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  label: prismic.KeyTextField;
+
+  /**
+   * Valeur field in *InfosPratiques → Heading, Description and Info Grid → Primary → Info Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_grid.heading_description_grid.primary.info_items[].main_value
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  main_value: prismic.KeyTextField;
+
+  /**
+   * Description field in *InfosPratiques → Heading, Description and Info Grid → Primary → Info Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_grid.heading_description_grid.primary.info_items[].subtext
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  subtext: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *InfosPratiques → Heading, Description and Info Grid → Primary*
+ */
+export interface InfoGridSliceHeadingDescriptionGridPrimary {
+  /**
+   * Title field in *InfosPratiques → Heading, Description and Info Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_grid.heading_description_grid.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *InfosPratiques → Heading, Description and Info Grid → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_grid.heading_description_grid.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Info Items field in *InfosPratiques → Heading, Description and Info Grid → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: info_grid.heading_description_grid.primary.info_items[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  info_items: prismic.GroupField<
+    Simplify<InfoGridSliceHeadingDescriptionGridPrimaryInfoItemsItem>
+  >;
+}
+
+/**
+ * Heading, Description and Info Grid variation for InfosPratiques Slice
+ *
+ * - **API ID**: `heading_description_grid`
+ * - **Description**: Includes a heading, a description, and a flexible grid of labeled information pairs, each with an optional subtext.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type InfoGridSliceHeadingDescriptionGrid = prismic.SharedSliceVariation<
+  "heading_description_grid",
+  Simplify<InfoGridSliceHeadingDescriptionGridPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *InfosPratiques*
+ */
+type InfoGridSliceVariation = InfoGridSliceHeadingDescriptionGrid;
+
+/**
+ * InfosPratiques Shared Slice
+ *
+ * - **API ID**: `info_grid`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type InfoGridSlice = prismic.SharedSlice<
+  "info_grid",
+  InfoGridSliceVariation
+>;
+
+/**
+ * Primary content in *ParagraphWithTitle → Default → Primary*
  */
 export interface LeadershipGuidanceSliceDefaultPrimary {
   /**
-   * Main Heading field in *Service → Default → Primary*
+   * Main Heading field in *ParagraphWithTitle → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -1225,7 +1733,7 @@ export interface LeadershipGuidanceSliceDefaultPrimary {
   mainHeading: prismic.KeyTextField;
 
   /**
-   * Subheading field in *Service → Default → Primary*
+   * Subheading field in *ParagraphWithTitle → Default → Primary*
    *
    * - **Field Type**: Text
    * - **Placeholder**: *None*
@@ -1235,7 +1743,7 @@ export interface LeadershipGuidanceSliceDefaultPrimary {
   subheading: prismic.KeyTextField;
 
   /**
-   * Description field in *Service → Default → Primary*
+   * Description field in *ParagraphWithTitle → Default → Primary*
    *
    * - **Field Type**: Rich Text
    * - **Placeholder**: *None*
@@ -1245,7 +1753,7 @@ export interface LeadershipGuidanceSliceDefaultPrimary {
   description: prismic.RichTextField;
 
   /**
-   * cta field in *Service → Default → Primary*
+   * cta field in *ParagraphWithTitle → Default → Primary*
    *
    * - **Field Type**: Link
    * - **Placeholder**: *None*
@@ -1256,7 +1764,7 @@ export interface LeadershipGuidanceSliceDefaultPrimary {
 }
 
 /**
- * Default variation for Service Slice
+ * Default variation for ParagraphWithTitle Slice
  *
  * - **API ID**: `default`
  * - **Description**: Default variation
@@ -1269,12 +1777,12 @@ export type LeadershipGuidanceSliceDefault = prismic.SharedSliceVariation<
 >;
 
 /**
- * Slice variation for *Service*
+ * Slice variation for *ParagraphWithTitle*
  */
 type LeadershipGuidanceSliceVariation = LeadershipGuidanceSliceDefault;
 
 /**
- * Service Shared Slice
+ * ParagraphWithTitle Shared Slice
  *
  * - **API ID**: `leadership_guidance`
  * - **Description**: Two-column layout with main heading on the left and descriptive content on the right
@@ -1283,6 +1791,71 @@ type LeadershipGuidanceSliceVariation = LeadershipGuidanceSliceDefault;
 export type LeadershipGuidanceSlice = prismic.SharedSlice<
   "leadership_guidance",
   LeadershipGuidanceSliceVariation
+>;
+
+/**
+ * Primary content in *Media → Media → Primary*
+ */
+export interface MediaFeatureSliceMediaLeftTextPrimary {
+  /**
+   * Titre field in *Media → Media → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.media_left_text.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Media → Media → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.media_left_text.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/rich-text
+   */
+  description: prismic.RichTextField;
+
+  /**
+   * Video field in *Media → Media → Primary*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: media_feature.media_left_text.primary.video
+   * - **Documentation**: https://prismic.io/docs/fields/embed
+   */
+  video: prismic.EmbedField;
+}
+
+/**
+ * Media variation for Media Slice
+ *
+ * - **API ID**: `media_left_text`
+ * - **Description**: Displays a media (video or image) on one side with a heading and supporting text on the other side.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MediaFeatureSliceMediaLeftText = prismic.SharedSliceVariation<
+  "media_left_text",
+  Simplify<MediaFeatureSliceMediaLeftTextPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Media*
+ */
+type MediaFeatureSliceVariation = MediaFeatureSliceMediaLeftText;
+
+/**
+ * Media Shared Slice
+ *
+ * - **API ID**: `media_feature`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type MediaFeatureSlice = prismic.SharedSlice<
+  "media_feature",
+  MediaFeatureSliceVariation
 >;
 
 /**
@@ -1434,6 +2007,90 @@ type MissionValuesSliceVariation = MissionValuesSliceDefault;
 export type MissionValuesSlice = prismic.SharedSlice<
   "mission_values",
   MissionValuesSliceVariation
+>;
+
+/**
+ * Item in *Programme → Default → Primary → Items*
+ */
+export interface NumberedListWithNotesSliceTitleNumberedItemsWithSideNotesPrimaryStepsItem {
+  /**
+   * Titre field in *Programme → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: numbered_list_with_notes.title_numbered_items_with_side_notes.primary.steps[].title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Description field in *Programme → Default → Primary → Items*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: numbered_list_with_notes.title_numbered_items_with_side_notes.primary.steps[].description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Programme → Default → Primary*
+ */
+export interface NumberedListWithNotesSliceTitleNumberedItemsWithSideNotesPrimary {
+  /**
+   * Titre field in *Programme → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: numbered_list_with_notes.title_numbered_items_with_side_notes.primary.title
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  title: prismic.KeyTextField;
+
+  /**
+   * Items field in *Programme → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: numbered_list_with_notes.title_numbered_items_with_side_notes.primary.steps[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  steps: prismic.GroupField<
+    Simplify<NumberedListWithNotesSliceTitleNumberedItemsWithSideNotesPrimaryStepsItem>
+  >;
+}
+
+/**
+ * Default variation for Programme Slice
+ *
+ * - **API ID**: `title_numbered_items_with_side_notes`
+ * - **Description**: Displays a headline and description followed by a two-column list: numbered main items on the left, and corresponding side notes or brief explanations on the right.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type NumberedListWithNotesSliceTitleNumberedItemsWithSideNotes =
+  prismic.SharedSliceVariation<
+    "title_numbered_items_with_side_notes",
+    Simplify<NumberedListWithNotesSliceTitleNumberedItemsWithSideNotesPrimary>,
+    never
+  >;
+
+/**
+ * Slice variation for *Programme*
+ */
+type NumberedListWithNotesSliceVariation =
+  NumberedListWithNotesSliceTitleNumberedItemsWithSideNotes;
+
+/**
+ * Programme Shared Slice
+ *
+ * - **API ID**: `numbered_list_with_notes`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type NumberedListWithNotesSlice = prismic.SharedSlice<
+  "numbered_list_with_notes",
+  NumberedListWithNotesSliceVariation
 >;
 
 /**
@@ -1639,6 +2296,108 @@ export type TeamMemberProfilesSlice = prismic.SharedSlice<
 >;
 
 /**
+ * Item in *Intervenants → Default → Primary → Profiles*
+ */
+export interface TeamProfilesGridSliceDefaultGridPrimaryProfilesItem {
+  /**
+   * Photo field in *Intervenants → Default → Primary → Profiles*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_profiles_grid.default_grid.primary.profiles[].photo
+   * - **Documentation**: https://prismic.io/docs/fields/image
+   */
+  photo: prismic.ImageField<never>;
+
+  /**
+   * Name field in *Intervenants → Default → Primary → Profiles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_profiles_grid.default_grid.primary.profiles[].name
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  name: prismic.KeyTextField;
+
+  /**
+   * Role/Title field in *Intervenants → Default → Primary → Profiles*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_profiles_grid.default_grid.primary.profiles[].role
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  role: prismic.KeyTextField;
+}
+
+/**
+ * Primary content in *Intervenants → Default → Primary*
+ */
+export interface TeamProfilesGridSliceDefaultGridPrimary {
+  /**
+   * Titre field in *Intervenants → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_profiles_grid.default_grid.primary.titre
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  titre: prismic.KeyTextField;
+
+  /**
+   * Description field in *Intervenants → Default → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_profiles_grid.default_grid.primary.description
+   * - **Documentation**: https://prismic.io/docs/fields/text
+   */
+  description: prismic.KeyTextField;
+
+  /**
+   * Profiles field in *Intervenants → Default → Primary*
+   *
+   * - **Field Type**: Group
+   * - **Placeholder**: *None*
+   * - **API ID Path**: team_profiles_grid.default_grid.primary.profiles[]
+   * - **Documentation**: https://prismic.io/docs/fields/repeatable-group
+   */
+  profiles: prismic.GroupField<
+    Simplify<TeamProfilesGridSliceDefaultGridPrimaryProfilesItem>
+  >;
+}
+
+/**
+ * Default variation for Intervenants Slice
+ *
+ * - **API ID**: `default_grid`
+ * - **Description**: Profiles are displayed in a grid below a heading and description, each with image, name, and role/title.
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TeamProfilesGridSliceDefaultGrid = prismic.SharedSliceVariation<
+  "default_grid",
+  Simplify<TeamProfilesGridSliceDefaultGridPrimary>,
+  never
+>;
+
+/**
+ * Slice variation for *Intervenants*
+ */
+type TeamProfilesGridSliceVariation = TeamProfilesGridSliceDefaultGrid;
+
+/**
+ * Intervenants Shared Slice
+ *
+ * - **API ID**: `team_profiles_grid`
+ * - **Description**: *None*
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type TeamProfilesGridSlice = prismic.SharedSlice<
+  "team_profiles_grid",
+  TeamProfilesGridSliceVariation
+>;
+
+/**
  * Primary content in *QuoteAndButton → Default → Primary*
  */
 export interface TestimonialSliceDefaultPrimary {
@@ -1701,6 +2460,36 @@ type TestimonialSliceVariation = TestimonialSliceDefault;
 export type TestimonialSlice = prismic.SharedSlice<
   "testimonial",
   TestimonialSliceVariation
+>;
+
+/**
+ * Default variation for UpcomingEvents Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default upcoming events grid
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type UpcomingEventsSliceDefault = prismic.SharedSliceVariation<
+  "default",
+  Record<string, never>,
+  never
+>;
+
+/**
+ * Slice variation for *UpcomingEvents*
+ */
+type UpcomingEventsSliceVariation = UpcomingEventsSliceDefault;
+
+/**
+ * UpcomingEvents Shared Slice
+ *
+ * - **API ID**: `upcoming_events`
+ * - **Description**: Displays the 3 upcoming events automatically fetched from the event collection
+ * - **Documentation**: https://prismic.io/docs/slices
+ */
+export type UpcomingEventsSlice = prismic.SharedSlice<
+  "upcoming_events",
+  UpcomingEventsSliceVariation
 >;
 
 /**
@@ -1803,9 +2592,12 @@ declare module "@prismicio/client" {
       ContactDocument,
       ContactDocumentData,
       ContactDocumentDataSlicesSlice,
+      EvenementsDocument,
+      EvenementsDocumentData,
+      EvenementsDocumentDataSlicesSlice,
       EventDocument,
       EventDocumentData,
-      EventDocumentDataModuleItem,
+      EventDocumentDataSlicesSlice,
       FooterDocument,
       FooterDocumentData,
       FooterDocumentDataFooterBlockItem,
@@ -1822,12 +2614,25 @@ declare module "@prismicio/client" {
       ServicesDocumentData,
       ServicesDocumentDataSlicesSlice,
       AllDocumentTypes,
+      CallToActionCenteredSlice,
+      CallToActionCenteredSliceDualButtonPrimary,
+      CallToActionCenteredSliceVariation,
+      CallToActionCenteredSliceDualButton,
       CaseStudySlice,
       CaseStudySliceDefaultPrimary,
       CaseStudySliceCaseStudyImageLeftPrimary,
       CaseStudySliceVariation,
       CaseStudySliceDefault,
       CaseStudySliceCaseStudyImageLeft,
+      EventHeroSlice,
+      EventHeroSliceDefaultLayoutPrimary,
+      EventHeroSliceVariation,
+      EventHeroSliceDefaultLayout,
+      FeatureGridSlice,
+      FeatureGridSliceDefaultPrimaryItemsItem,
+      FeatureGridSliceDefaultPrimary,
+      FeatureGridSliceVariation,
+      FeatureGridSliceDefault,
       HeroSlice,
       HeroSliceDefaultPrimary,
       HeroSliceVariation,
@@ -1838,14 +2643,28 @@ declare module "@prismicio/client" {
       ImageComparisonSliceVariation,
       ImageComparisonSliceDefault,
       ImageComparisonSliceInversed,
+      InfoGridSlice,
+      InfoGridSliceHeadingDescriptionGridPrimaryInfoItemsItem,
+      InfoGridSliceHeadingDescriptionGridPrimary,
+      InfoGridSliceVariation,
+      InfoGridSliceHeadingDescriptionGrid,
       LeadershipGuidanceSlice,
       LeadershipGuidanceSliceDefaultPrimary,
       LeadershipGuidanceSliceVariation,
       LeadershipGuidanceSliceDefault,
+      MediaFeatureSlice,
+      MediaFeatureSliceMediaLeftTextPrimary,
+      MediaFeatureSliceVariation,
+      MediaFeatureSliceMediaLeftText,
       MissionValuesSlice,
       MissionValuesSliceDefaultPrimary,
       MissionValuesSliceVariation,
       MissionValuesSliceDefault,
+      NumberedListWithNotesSlice,
+      NumberedListWithNotesSliceTitleNumberedItemsWithSideNotesPrimaryStepsItem,
+      NumberedListWithNotesSliceTitleNumberedItemsWithSideNotesPrimary,
+      NumberedListWithNotesSliceVariation,
+      NumberedListWithNotesSliceTitleNumberedItemsWithSideNotes,
       SectionHeaderSlice,
       SectionHeaderSliceDefaultPrimary,
       SectionHeaderSliceVariation,
@@ -1859,10 +2678,18 @@ declare module "@prismicio/client" {
       TeamMemberProfilesSliceDefaultPrimary,
       TeamMemberProfilesSliceVariation,
       TeamMemberProfilesSliceDefault,
+      TeamProfilesGridSlice,
+      TeamProfilesGridSliceDefaultGridPrimaryProfilesItem,
+      TeamProfilesGridSliceDefaultGridPrimary,
+      TeamProfilesGridSliceVariation,
+      TeamProfilesGridSliceDefaultGrid,
       TestimonialSlice,
       TestimonialSliceDefaultPrimary,
       TestimonialSliceVariation,
       TestimonialSliceDefault,
+      UpcomingEventsSlice,
+      UpcomingEventsSliceVariation,
+      UpcomingEventsSliceDefault,
       VisionStatementSlice,
       VisionStatementSliceDefaultPrimary,
       VisionStatementSliceVariation,
