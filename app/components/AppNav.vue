@@ -275,7 +275,7 @@ onUnmounted(() => {
     &--bold {
       font-weight: 400;
       border: 1px solid $color-navy;
-      padding: 0.6rem 1.5rem;
+      padding: 0.75rem 2rem;
       font-family: $font-sans;
       font-size: $font-size-sm;
     }

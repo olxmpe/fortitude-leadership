@@ -73,7 +73,7 @@ defineProps(getSliceComponentProps<Content.EventHeroSlice>());
 .event-hero {
   position: relative;
   width: 100%;
-  height: 80svh;
+  height: 85svh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -81,7 +81,7 @@ defineProps(getSliceComponentProps<Content.EventHeroSlice>());
 
   @media (max-width: $bp-mobile) {
     height: auto;
-    min-height: 80svh;
+    min-height: 85svh;
   }
 
   &__background {
