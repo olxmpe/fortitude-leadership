@@ -73,7 +73,7 @@ defineProps(getSliceComponentProps<Content.EventHeroSlice>());
 .event-hero {
   position: relative;
   width: 100%;
-  height: 85svh;
+  height: 100svh;
   display: flex;
   flex-direction: column;
   overflow: hidden;
@@ -81,7 +81,7 @@ defineProps(getSliceComponentProps<Content.EventHeroSlice>());
 
   @media (max-width: $bp-mobile) {
     height: auto;
-    min-height: 85svh;
+    min-height: 100svh;
   }
 
   &__background {
@@ -114,10 +114,10 @@ defineProps(getSliceComponentProps<Content.EventHeroSlice>());
     justify-content: center;
     text-align: center;
     gap: $spacing-xs;
-    padding: $spacing-sm $boxed 0;
+    padding: 5rem $boxed 0;
 
     @media (max-width: $bp-mobile) {
-      padding: $spacing-sm $boxed;
+      padding: 5rem $boxed $spacing-xs;
       gap: 1rem;
     }
   }
