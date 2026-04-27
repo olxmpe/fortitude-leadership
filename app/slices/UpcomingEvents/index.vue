@@ -107,9 +107,8 @@ const events = computed(() => {
 
   &__card-image {
     width: 100%;
-    height: 280px;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
-    margin-bottom: 0.5rem;
   }
 
   &__image {
@@ -117,54 +116,56 @@ const events = computed(() => {
     height: 100%;
     object-fit: cover;
     display: block;
+    transition: transform 0.4s ease;
+  }
+
+  &__card:hover &__image {
+    transform: scale(1.03);
   }
 
   &__card-content {
     display: flex;
     flex-direction: column;
+    gap: $spacing-xs;
     flex: 1;
+    padding-top: $spacing-xs;
   }
 
   &__meta {
     display: flex;
     flex-direction: column;
     gap: 0.25rem;
-    margin-bottom: $spacing-xs;
   }
 
   &__date,
   &__location {
     font-size: $font-size-xs;
     color: $color-gray;
-    font-weight: 400;
   }
 
   &__title {
-    font-family: $font-sans;
-    font-size: $font-size-sm;
-    font-weight: 600;
-    color: $color-navy;
-    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: $color-black;
     line-height: 1.4;
   }
 
   &__description {
-    font-size: $font-size-xs;
     color: $color-gray;
-    line-height: 1.6;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
     flex: 1;
-    margin-bottom: 0.5rem;
   }
 
   &__link {
+    font-size: $font-size-xs;
     color: $color-navy;
     text-decoration: underline;
-    text-decoration-color: $color-navy;
     text-underline-offset: 3px;
-    font-size: $font-size-xs;
-    font-weight: 400;
     transition: opacity 0.2s ease;
-    align-self: flex-start;
+    margin-top: auto;
   }
 }
 </style>
